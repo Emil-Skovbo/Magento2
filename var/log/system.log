@@ -2866,3 +2866,84 @@ Did you mean one of these?
 #4 /home/driton/public_html/bin/magento(23): Symfony\Component\Console\Application->run()
 #5 {main} [] []
 [2020-08-11 13:30:09] main.INFO: Consumer "async.operations.all" skipped as required connection "amqp" is not configured. Unknown connection name amqp [] []
+[2020-08-11 13:45:04] main.ERROR: There are no commands defined in the "setup:cron" namespace.
+
+Did you mean one of these?
+    setup
+    setup:config
+    setup:db
+    setup:db-data
+    setup:db-declaration
+    setup:db-schema
+    setup:di
+    setup:performance
+    setup:static-content
+    setup:store-config
+#0 /home/driton/public_html/vendor/symfony/console/Application.php(650): Symfony\Component\Console\Application->findNamespace('setup:cron')
+#1 /home/driton/public_html/vendor/symfony/console/Application.php(235): Symfony\Component\Console\Application->find('setup:cron:run')
+#2 /home/driton/public_html/vendor/magento/framework/Console/Cli.php(115): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/driton/public_html/vendor/symfony/console/Application.php(147): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /home/driton/public_html/bin/magento(23): Symfony\Component\Console\Application->run()
+#5 {main} [] []
+[2020-08-11 13:45:08] main.INFO: Consumer "async.operations.all" skipped as required connection "amqp" is not configured. Unknown connection name amqp [] []
+[2020-08-11 14:00:03] main.ERROR: There are no commands defined in the "setup:cron" namespace.
+
+Did you mean one of these?
+    setup
+    setup:config
+    setup:db
+    setup:db-data
+    setup:db-declaration
+    setup:db-schema
+    setup:di
+    setup:performance
+    setup:static-content
+    setup:store-config
+#0 /home/driton/public_html/vendor/symfony/console/Application.php(650): Symfony\Component\Console\Application->findNamespace('setup:cron')
+#1 /home/driton/public_html/vendor/symfony/console/Application.php(235): Symfony\Component\Console\Application->find('setup:cron:run')
+#2 /home/driton/public_html/vendor/magento/framework/Console/Cli.php(115): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/driton/public_html/vendor/symfony/console/Application.php(147): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /home/driton/public_html/bin/magento(23): Symfony\Component\Console\Application->run()
+#5 {main} [] []
+[2020-08-11 14:00:08] main.INFO: Consumer "async.operations.all" skipped as required connection "amqp" is not configured. Unknown connection name amqp [] []
+[2020-08-11 14:00:24] main.WARNING: Subscription for MBI service has been failed. An error occurred during token exchange: {"message":"Handshake request failed."}. Content-Type: application/json;charset=UTF-8 [] []
+[2020-08-11 14:15:03] main.ERROR: There are no commands defined in the "setup:cron" namespace.
+
+Did you mean one of these?
+    setup
+    setup:config
+    setup:db
+    setup:db-data
+    setup:db-declaration
+    setup:db-schema
+    setup:di
+    setup:performance
+    setup:static-content
+    setup:store-config
+#0 /home/driton/public_html/vendor/symfony/console/Application.php(650): Symfony\Component\Console\Application->findNamespace('setup:cron')
+#1 /home/driton/public_html/vendor/symfony/console/Application.php(235): Symfony\Component\Console\Application->find('setup:cron:run')
+#2 /home/driton/public_html/vendor/magento/framework/Console/Cli.php(115): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/driton/public_html/vendor/symfony/console/Application.php(147): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /home/driton/public_html/bin/magento(23): Symfony\Component\Console\Application->run()
+#5 {main} [] []
+[2020-08-11 14:15:08] main.INFO: Consumer "async.operations.all" skipped as required connection "amqp" is not configured. Unknown connection name amqp [] []
+[2020-08-11 14:30:04] main.ERROR: There are no commands defined in the "setup:cron" namespace.
+
+Did you mean one of these?
+    setup
+    setup:config
+    setup:db
+    setup:db-data
+    setup:db-declaration
+    setup:db-schema
+    setup:di
+    setup:performance
+    setup:static-content
+    setup:store-config
+#0 /home/driton/public_html/vendor/symfony/console/Application.php(650): Symfony\Component\Console\Application->findNamespace('setup:cron')
+#1 /home/driton/public_html/vendor/symfony/console/Application.php(235): Symfony\Component\Console\Application->find('setup:cron:run')
+#2 /home/driton/public_html/vendor/magento/framework/Console/Cli.php(115): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/driton/public_html/vendor/symfony/console/Application.php(147): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /home/driton/public_html/bin/magento(23): Symfony\Component\Console\Application->run()
+#5 {main} [] []
+[2020-08-11 14:30:10] main.INFO: Consumer "async.operations.all" skipped as required connection "amqp" is not configured. Unknown connection name amqp [] []
