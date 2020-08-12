@@ -6,6 +6,6 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/theme.xsd">
    <head>
-   <link src="Magento_Theme::icons8-puzzle-48.png" rel="icon" type="image/x-icon" sizes="16x16"/>
+   <link src="Magento_Theme::icons8-puzzle-48.png" rel="icon" type="image/x-icon" sizes="48x48"/>
    </head>
 </page>
