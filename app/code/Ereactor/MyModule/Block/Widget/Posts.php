@@ -1,5 +1,5 @@
 <?php 
-namespace Mageplaza\HelloWorld\Block\Widget;
+namespace Ereactor\MyModule\Block\Widget;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface; 
