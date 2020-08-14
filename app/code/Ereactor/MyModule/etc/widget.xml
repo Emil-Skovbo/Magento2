@@ -21,18 +21,16 @@
                     </option>
                 </options>
             </parameter>
-            <parameter name="insert_a_meaningfull_name" xsi:type="block" required="true" visible="true" sort_order="30">
-    <label translate="true">Insert a Label here</label>
-    <description translate="true">Add a great Description</description>
-    
-    <block class="Dlambauer\WidgetImageUpload\Block\Adminhtml\Widget\ImageChooser">
-        <data>
-            <item name="button" xsi:type="array">
-                <item name="open" xsi:type="string">Choose Image...</item>
-            </item>
-        </data>
-    </block>
-</parameter>
+<parameter name="image" xsi:type="block" required="true" visible="true" sort_order="10">
+                <label translate="true">Background image</label>
+                <block class="Vendor\Module\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
         </parameters>
     </widget>
 </widgets>
