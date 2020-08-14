@@ -1,4 +1,0 @@
-<?php if($block->getData('posts')): ?>
-	<h2 class='posts'><?php echo $block->getData('posts'); ?></h2>
-	<p>This is sample widget. Perform your code here.</p>
-<?php endif; ?>
