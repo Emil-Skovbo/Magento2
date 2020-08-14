@@ -41,7 +41,7 @@ module.exports = {
         ],
         dsl: 'less'
     },
-    custom: {
+    custom: {   
         area: 'frontend',
         name: 'Custom/less',
         locale: 'en_US',
