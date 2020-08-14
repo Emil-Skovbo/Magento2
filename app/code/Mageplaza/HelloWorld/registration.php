@@ -1,6 +1,6 @@
 <?php
 \Magento\Framework\Component\ComponentRegistrar::register(
 	\Magento\Framework\Component\ComponentRegistrar::MODULE,
-	'Eractor_Modules',
+	'Mageplaza_HelloWorld',
 	__DIR__
 );
