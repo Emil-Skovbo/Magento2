@@ -19,3 +19,6 @@ class Test extends \Magento\Framework\App\Action\Action
 		exit;
 	}
 }
+
+
+
