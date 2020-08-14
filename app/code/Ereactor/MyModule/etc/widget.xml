@@ -1,7 +1,6 @@
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget class="Ereactor\MyModule\Block\Widget\Test" id="orange_test_widget">
-        ...
+    <widget class="OrangeCompany\Learning\Block\Widget\Test" id="orange_test_widget">
         <parameters>
             <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="10">
                 <label>Label</label>
