@@ -29,7 +29,7 @@ class InstallData implements InstallDataInterface
 			[
 				'type'         => 'varchar',
 				'label'        => 'Mageplaza Attribute',
-				'input'        => 'text',
+				'input'        => 'media_image',
 				'sort_order'   => 100,
 				'source'       => '',
 				'global'       => 1,
