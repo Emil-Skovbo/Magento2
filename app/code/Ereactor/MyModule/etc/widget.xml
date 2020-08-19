@@ -1,13 +1,12 @@
-<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
     <widget class="Ereactor\MyModule\Block\Widget\Test" id="orange_test_widget">
         <label>My New Widget</label>
         <description>This is a test widget!!!</description>
         <parameters>
-       <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="10">
+            <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="10">
                 <label>Label</label>
             </parameter>
-             <parameter name="size" xsi:type="select" visible="true" required="true" sort_order="20">
+            <parameter name="size" xsi:type="select" visible="true" required="true" sort_order="20">
                 <label translate="true">Size</label>
                 <options>
                     <option name="s" value="S">
@@ -21,7 +20,7 @@
                     </option>
                 </options>
             </parameter>
-  <!--            <parameter name="image" xsi:type="block" required="true" visible="true" sort_order="10">
+            <!--            <parameter name="image" xsi:type="block" required="true" visible="true" sort_order="10">
                 <label translate="true">Background image</label>
                 <block class="Ereactor\MyModule\Block\Widget\ImageChooser">
                     <data>
@@ -31,6 +30,15 @@
                     </data>
                 </block>
             </parameter>-->
+        </parameters>
+    </widget>
+    <widget class="Ereactor\MyModule\Block\Widget\UploadWidget" id="categoryicons">
+        <label>My New Widget</label>
+        <description>This is a test widget!!!</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="10">
+                <label>Category ids</label>
+            </parameter>
         </parameters>
     </widget>
 </widgets>
