@@ -1,49 +1,40 @@
 <?php
-namespace Mageplaza\HelloWorld\Setup;
+namespace Wage\Categorylist\Setup;
 
+use Magento\Framework\Module\Setup\Migration;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Magento\Eav\Setup\EavSetupFactory;
+use Magento\Catalog\Setup\CategorySetupFactory;
 
 class InstallData implements InstallDataInterface
 {
+    public function __construct(CategorySetupFactory $categorySetupFactory)
+    {
+        $this->categorySetupFactory = $categorySetupFactory;
+    }
+    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
+    {
+        $installer = $setup;
+        $installer->startSetup();
 
-	private $eavSetupFactory;
-
-	public function __construct(EavSetupFactory $eavSetupFactory)
-	{
-		$this->eavSetupFactory = $eavSetupFactory;
-	}
-
-	public function install(
-		ModuleDataSetupInterface $setup,
-		ModuleContextInterface $context
-	)
-	{
-		if (version_compare($context->getVersion(), '1.0.6', '<')) {
-			$eavSetup = $this->eavSetupFactory->create();
-	
-			$eavSetup->addAttribute(
-				\Magento\Catalog\Model\Category::ENTITY,
-				'color_image',
-				[
-					'type' => 'varchar',
-					'label' => 'color_image',
-					'input' => 'media_image',
-					'required' => false,
-					'sort_order' => 30,
-					'frontend' => \Magento\Catalog\Model\Product\Attribute\Frontend\Image::class,
-					'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
-					'used_in_product_listing' => true,
-					'user_defined' => true,
-					'visible' => true,
-					'visible_on_front' => true
-				]
-			);
-			
-		}
-	
-	}
-
+        $categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
+        $entityTypeId = $categorySetup->getEntityTypeId(\Magento\Catalog\Model\Category::ENTITY);
+        $attributeSetId = $categorySetup->getDefaultAttributeSetId($entityTypeId);
+        $categorySetup->removeAttribute(
+            \Magento\Catalog\Model\Category::ENTITY, 'thumbnail' );
+        $categorySetup->addAttribute(
+            \Magento\Catalog\Model\Category::ENTITY, 'thumbnail', [
+                'type' => 'varchar',
+                'label' => 'Featured Image',
+                'input' => 'image',
+                'backend' => 'Magento\Catalog\Model\Category\Attribute\Backend\Image',
+                'required' => false,
+                'sort_order' => 5,
+                'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                'group' => 'General Information',
+            ]
+        );
+        $installer->endSetup();
+    }
 }
