@@ -11,6 +11,7 @@ class UploadWidget extends Template implements BlockInterface
 {
     protected $_template = "widget/categoryIcons.phtml";
     protected $catRepo;
+    
 
 
     public function __construct(Template\Context $context, array $data = [], CategoryRepositoryInterface $catRepo)
@@ -33,7 +34,7 @@ public function getCatIcon(){
     $catid = explode(",",$catid);
     $iconurls = [];
     foreach ($catid as $id) {
-        $category = $this->cataRepo->get($id);
+        $category = $this->catRepo->get($id);
         $iconurls[] = $category->getData("thumbnail");
     }
     return $iconurls; 
