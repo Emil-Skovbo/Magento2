@@ -30,11 +30,14 @@ class UploadWidget extends Template implements BlockInterface
 
 
 public function getCatIcon(){
+
+
     $catid = $this->getData("title");
     $catid = explode(",",$catid);
     $iconurls = [];
     foreach ($catid as $id) {
         $category = $this->catRepo->get($id);
+        return $category->getCustomAttributes();
         $iconurls[] = $category->getData("thumbnail");
     }
     return $iconurls; 
