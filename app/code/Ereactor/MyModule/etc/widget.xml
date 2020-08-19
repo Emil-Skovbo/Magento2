@@ -33,8 +33,8 @@
         </parameters>
     </widget>
     <widget class="Ereactor\MyModule\Block\Widget\UploadWidget" id="categoryicons">
-        <label>My New Widget</label>
-        <description>This is a test widget!!!</description>
+        <label>UploadWidget</label>
+        <description>This is a test widget for uploading images</description>
         <parameters>
             <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="10">
                 <label>Category ids</label>
