@@ -10,10 +10,10 @@ use Magento\Catalog\Api\CategoryRepositoryInterface;
 class UploadWidget extends Template implements BlockInterface
 {
     protected $_template = "widget/categoryIcons.phtml";
-    protected $cataRepo;
+    protected $catRepo;
 
 
-    public function __construct(Template\Context $context, array $data = [], CategoryRepositoryInterface $cataRepo)
+    public function __construct(Template\Context $context, array $data = [], CategoryRepositoryInterface $catRepo)
 {
     $this->validator = $context->getValidator();
     $this->resolver = $context->getResolver();
@@ -23,7 +23,7 @@ class UploadWidget extends Template implements BlockInterface
     $this->_appState = $context->getAppState();
     $this->templateContext = $this;
     $this->pageConfig = $context->getPageConfig();
-    $this->cataRepo = $cataRepo;
+    $this->catRepo = $catRepo;
     parent::__construct($context, $data);
 }
 
@@ -31,14 +31,10 @@ class UploadWidget extends Template implements BlockInterface
 public function getCatIcon(){
     $catid = $this->getData("title");
     $catid = explode(",",$catid);
-
     $iconurls = [];
-
     foreach ($catid as $id) {
         $category = $this->cataRepo->get($id);
-
         $iconurls[] = $category->getData("thumbnail");
-        
     }
     return $iconurls; 
 
