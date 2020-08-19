@@ -23,7 +23,7 @@
             </parameter>
 <parameter name="image" xsi:type="block" required="true" visible="true" sort_order="10">
                 <label translate="true">Background image</label>
-                <block class="Vendor\Module\Block\Widget\ImageChooser">
+                <block class="Ereactor\MyModule\Block\Widget\ImageChooser">
                     <data>
                         <item name="button" xsi:type="array">
                             <item name="open" xsi:type="string">Choose Image...</item>
