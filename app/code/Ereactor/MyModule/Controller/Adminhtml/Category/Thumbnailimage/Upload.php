@@ -1,5 +1,5 @@
 <?php
-namespace Wage\Categorylist\Controller\Adminhtml\Category\Thumbnailimage;
+namespace Ereactor\MyModule\Controller\Adminhtml\Category\Thumbnailimage;
 
 use Magento\Framework\Controller\ResultFactory;
 
