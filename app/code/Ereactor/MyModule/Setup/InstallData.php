@@ -25,7 +25,7 @@ class InstallData implements InstallDataInterface
 			$eavSetup = $this->eavSetupFactory->create();
 	
 			$eavSetup->addAttribute(
-				\Magento\Catalog\Model\Product::ENTITY,
+				\Magento\Catalog\Model\Category::ENTITY,
 				'color_image',
 				[
 					'type' => 'varchar',
@@ -41,14 +41,7 @@ class InstallData implements InstallDataInterface
 					'visible_on_front' => true
 				]
 			);
-			$id = $eavSetup->getAttributeId(
-				\Magento\Catalog\Model\Product::ENTITY,
-				'color_image'
-			);
-	
-			$attributeSetId = $eavSetup->getDefaultAttributeSetId(\Magento\Catalog\Model\Product::ENTITY);
-			$eavSetup->addAttributeToGroup(\Magento\Catalog\Model\Product::ENTITY, $attributeSetId, 'image-management', $id, 10);
-	
+			
 		}
 	
 	}
