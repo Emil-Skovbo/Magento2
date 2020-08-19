@@ -2,12 +2,12 @@
 namespace Ereactor\MyModule\Setup;
 
 use Magento\Framework\Module\Setup\Migration;
-use Magento\Framework\Setup\InstallDataInterface;
+use Magento\Framework\Setup\UpgradeDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Catalog\Setup\CategorySetupFactory;
 
-class InstallData implements InstallDataInterface
+class UpgradeData implements InstallDataInterface
 {
     public function __construct(CategorySetupFactory $categorySetupFactory)
     {
