@@ -1,5 +1,5 @@
 <?php
-namespace Wage\Categorylist\Setup;
+namespace Ereactor\MyModule\Setup;
 
 use Magento\Framework\Module\Setup\Migration;
 use Magento\Framework\Setup\InstallDataInterface;
