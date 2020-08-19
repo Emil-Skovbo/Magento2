@@ -4,7 +4,7 @@
         <label>My New Widget</label>
         <description>This is a test widget!!!</description>
         <parameters>
-            <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="10">
+          <parameter name="title" xsi:type="text" required="true" visible="true" sort_order="10">
                 <label>Label</label>
             </parameter>
             <parameter name="size" xsi:type="select" visible="true" required="true" sort_order="20">
@@ -21,7 +21,7 @@
                     </option>
                 </options>
             </parameter>
-<parameter name="image" xsi:type="block" required="true" visible="true" sort_order="10">
+<!--            <parameter name="image" xsi:type="block" required="true" visible="true" sort_order="10">
                 <label translate="true">Background image</label>
                 <block class="Ereactor\MyModule\Block\Widget\ImageChooser">
                     <data>
@@ -30,7 +30,7 @@
                         </item>
                     </data>
                 </block>
-            </parameter>
+            </parameter>-->
         </parameters>
     </widget>
 </widgets>
