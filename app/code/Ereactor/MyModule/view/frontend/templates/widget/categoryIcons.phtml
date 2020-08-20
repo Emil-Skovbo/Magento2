@@ -6,6 +6,8 @@
 <?php
 foreach ($block->getCatIcon() as $value) {
    echo $value;
+   foreach ($value as $thumbnail) {
+      echo $thumbnail;
    ?>
    <div class="col-3 py-2 col-lg text-center">
                 <a href="https://www.sono.no/produkter/kontorutstyr.aspx" class="d-block category-icon-container text-warning-hover">
@@ -15,6 +17,7 @@ foreach ($block->getCatIcon() as $value) {
         </div>
 
         <?php
+}
 }
 ?>
 <div class="row category-list m-auto thin-gutters justify-content-between container">
