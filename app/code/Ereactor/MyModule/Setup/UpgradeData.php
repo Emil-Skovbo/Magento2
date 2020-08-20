@@ -5,11 +5,14 @@ use Magento\Framework\Module\Setup\Migration;
 use Magento\Framework\Setup\UpgradeDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Magento\Catalog\Setup\CategorySetupFactory;
+use Magento\Eav\Setup\EavSetupFactory;
 
 class UpgradeData implements InstallDataInterface
 {
-    public function __construct(CategorySetupFactory $categorySetupFactory)
+    public $categorySetupFactory;
+
+
+    public function __construct(EavSetupFactory $categorySetupFactory)
     {
         $this->categorySetupFactory = $categorySetupFactory;
     }
@@ -17,12 +20,6 @@ class UpgradeData implements InstallDataInterface
     {
         $installer = $setup;
         $installer->startSetup();
-
-        $categorySetup = $this->categorySetupFactory->create(['setup' => $setup]);
-        $entityTypeId = $categorySetup->getEntityTypeId(\Magento\Catalog\Model\Category::ENTITY);
-        $attributeSetId = $categorySetup->getDefaultAttributeSetId($entityTypeId);
-        $categorySetup->removeAttribute(
-            \Magento\Catalog\Model\Category::ENTITY, 'thumbnail' );
         $categorySetup->addAttribute(
             \Magento\Catalog\Model\Category::ENTITY, 'thumbnail', [
                 'type' => 'varchar',
@@ -35,6 +32,7 @@ class UpgradeData implements InstallDataInterface
                 'group' => 'General Information',
             ]
         );
+        error_log("hej error log");
         $installer->endSetup();
     }
 }
