@@ -4,7 +4,10 @@ echo "TEST";
 <?php print_r($block->getCatIcon()); 
 
 foreach ($block->getCatIcon() as $value) {
-   $value;
-   error_log($value . "value from getCatIcon");
+   error_log($url . "value from getCatIcon");
+   foreach ($value as $url) {
+      $url;
+      error_log($url . "value from getCatIcon");
+   }
 }
 error_log($block->getCatIcon());
