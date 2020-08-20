@@ -37,7 +37,7 @@ public function getCatIcon(){
     $iconurls = [];
     foreach ($catid as $id) {
         $category = $this->catRepo->get($id);
-        array_push($iconurls,$category->getCustomAttribute('thumbnail'));
+        $iconurls[] = $category->getCustomAttribute('thumbnail');
     }
     error_log("getCatIcon");
     return $iconurls; 
