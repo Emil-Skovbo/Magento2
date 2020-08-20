@@ -36,7 +36,7 @@ class Upload extends \Magento\Backend\App\Action
             $category = $this->catRepo->get(38);
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->catRepo->save($category);
-
+            
             
             $result['cookie'] = [
                 'name' => $this->_getSession()->getName(),
@@ -46,8 +46,10 @@ class Upload extends \Magento\Backend\App\Action
                 'domain' => $this->_getSession()->getCookieDomain(),
             ];
         } catch (\Exception $e) {
+            error_log("execute Exception error_log");
             $result = ['error' => $e->getMessage(), 'errorcode' => $e->getCode()];
         }
+        error_log("upload error_log");
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
     }
 }
