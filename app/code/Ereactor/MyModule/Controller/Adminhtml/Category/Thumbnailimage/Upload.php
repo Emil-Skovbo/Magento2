@@ -25,12 +25,7 @@ class Upload extends \Magento\Backend\App\Action
 
     }
     public function execute() {
-
-        try {
-
-
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
-            
             $urlPath = $result["url_path"];
             error_log($urlPath . " saved");
             $category = $this->catRepo->get(38);
@@ -46,9 +41,7 @@ class Upload extends \Magento\Backend\App\Action
                 'path' => $this->_getSession()->getCookiePath(),
                 'domain' => $this->_getSession()->getCookieDomain(),
             ];
-        } catch (\Exception $e) {
-            $result = ['error' => $e->getMessage(), 'errorcode' => $e->getCode()];
-        }
+
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
     }
 }
