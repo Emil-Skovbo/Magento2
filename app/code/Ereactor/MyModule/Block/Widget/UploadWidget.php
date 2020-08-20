@@ -40,8 +40,7 @@ public function getCatIcon(){
         array_push($iconurls,$category->getCustomAttributes());
     }
     return $iconurls; 
-
-}
+    }
 
 }
 ?>

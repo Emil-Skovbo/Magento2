@@ -7,7 +7,7 @@ use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Eav\Setup\EavSetupFactory;
 
-class UpgradeData implements InstallDataInterface
+class UpgradeData implements UpgradeDataInterface
 {
     public $categorySetupFactory;
 
@@ -17,7 +17,7 @@ class UpgradeData implements InstallDataInterface
         $this->categorySetupFactory = $categorySetupFactory;
         
     }
-    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
+    public function upgrade(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
         $setup->startSetup();
         $this->categorySetupFactory =$this->categorySetupFactory->create(['setup' => $setup]);
