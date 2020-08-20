@@ -27,17 +27,13 @@ class Upload extends \Magento\Backend\App\Action
     public function execute() {
 
         try {
-
-
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
-            
             $urlPath = $result["url"];
             error_log($urlPath . " saved");
             $category = $this->catRepo->get(38);
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->catRepo->save($category);
-            
-            
+           
             $result['cookie'] = [
                 'name' => $this->_getSession()->getName(),
                 'value' => $this->_getSession()->getSessionId(),
