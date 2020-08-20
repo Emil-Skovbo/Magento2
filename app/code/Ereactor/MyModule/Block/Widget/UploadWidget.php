@@ -34,7 +34,6 @@ public function getCatIcon(){
 
     $catid = $this->getData("title");
     $catid = explode(",",$catid);
-    print_r($catid);
     $iconurls = [];
     foreach ($catid as $id) {
         $category = $this->catRepo->get($id);
