@@ -33405,3 +33405,30 @@ Did you mean one of these?
 [2020-08-20 10:52:46] main.INFO: Broken reference: the 'paypal.partner.right.logo' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
 [2020-08-20 10:52:46] main.INFO: Broken reference: the 'bml.right.logo' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
 [2020-08-20 10:52:46] main.INFO: Broken reference: the 'yotpo_bottomline' tries to reorder itself towards 'product.info.addto', but their parents are different: 'product.info.main' and '' respectively. [] []
+[2020-08-20 10:59:37] main.INFO: Broken reference: the 'catalog.compare.sidebar' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
+[2020-08-20 10:59:37] main.INFO: Broken reference: the 'sale.reorder.sidebar' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
+[2020-08-20 10:59:37] main.INFO: Broken reference: the 'wishlist_sidebar' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
+[2020-08-20 10:59:37] main.INFO: Broken reference: the 'yotpo_bottomline' element cannot be added as child to 'product.info.main', because the latter doesn't exist [] []
+[2020-08-20 10:59:37] main.INFO: Broken reference: the 'paypal.partner.right.logo' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
+[2020-08-20 10:59:37] main.INFO: Broken reference: the 'bml.right.logo' element cannot be added as child to 'sidebar.additional', because the latter doesn't exist [] []
+[2020-08-20 10:59:37] main.INFO: Broken reference: the 'yotpo_bottomline' tries to reorder itself towards 'product.info.addto', but their parents are different: 'product.info.main' and '' respectively. [] []
+[2020-08-20 11:00:03] main.ERROR: There are no commands defined in the "setup:cron" namespace.
+
+Did you mean one of these?
+    setup
+    setup:config
+    setup:db
+    setup:db-data
+    setup:db-declaration
+    setup:db-schema
+    setup:di
+    setup:performance
+    setup:static-content
+    setup:store-config
+#0 /home/driton/public_html/vendor/symfony/console/Application.php(650): Symfony\Component\Console\Application->findNamespace('setup:cron')
+#1 /home/driton/public_html/vendor/symfony/console/Application.php(235): Symfony\Component\Console\Application->find('setup:cron:run')
+#2 /home/driton/public_html/vendor/magento/framework/Console/Cli.php(115): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /home/driton/public_html/vendor/symfony/console/Application.php(147): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /home/driton/public_html/bin/magento(23): Symfony\Component\Console\Application->run()
+#5 {main} [] []
+[2020-08-20 11:00:08] main.INFO: Consumer "async.operations.all" skipped as required connection "amqp" is not configured. Unknown connection name amqp [] []
