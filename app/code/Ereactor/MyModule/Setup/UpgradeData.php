@@ -15,11 +15,12 @@ class UpgradeData implements InstallDataInterface
     public function __construct(EavSetupFactory $categorySetupFactory)
     {
         $this->categorySetupFactory = $categorySetupFactory;
+        
     }
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
-        $installer = $setup;
-        $installer->startSetup();
+        $setup->startSetup();
+        $this->categorySetupFactory =$this->categorySetupFactory->create(['setup' => $setup]);
         $categorySetup->addAttribute(
             \Magento\Catalog\Model\Category::ENTITY, 'thumbnail', [
                 'type' => 'varchar',
@@ -33,6 +34,6 @@ class UpgradeData implements InstallDataInterface
             ]
         );
         error_log("hej error log");
-        $installer->endSetup();
+        $setup->endSetup();
     }
 }
