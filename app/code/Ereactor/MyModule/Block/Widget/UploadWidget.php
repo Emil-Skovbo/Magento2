@@ -39,6 +39,7 @@ public function getCatIcon(){
         $category = $this->catRepo->get($id);
         array_push($iconurls,$category->getCustomAttributes());
     }
+    error_log("getCatIcon");
     return $iconurls; 
     }
 
