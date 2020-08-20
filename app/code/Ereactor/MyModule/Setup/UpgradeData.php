@@ -21,7 +21,7 @@ class UpgradeData implements UpgradeDataInterface
     {
         $setup->startSetup();
         $this->categorySetupFactory =$this->categorySetupFactory->create(['setup' => $setup]);
-        $categorySetupFactory->addAttribute(
+        $this->categorySetupFactory->addAttribute(
             \Magento\Catalog\Model\Category::ENTITY, 'thumbnail', [
                 'type' => 'varchar',
                 'label' => 'Featured Image',
