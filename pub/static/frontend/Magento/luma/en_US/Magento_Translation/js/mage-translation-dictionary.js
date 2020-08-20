@@ -1,1 +1,0 @@
-/home/driton/public_html/vendor/magento/module-translation/view/base/web/js/mage-translation-dictionary.js
