@@ -1,1 +1,0 @@
-/home/driton/public_html/vendor/magento/module-admin-notification/view/adminhtml/web/toolbar_entry.js

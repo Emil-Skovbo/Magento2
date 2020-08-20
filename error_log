@@ -10,3 +10,22 @@
 [11-Aug-2020 11:19:41 UTC] PHP Warning:  Unknown: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
 hejjj
 >>>>>>> 0b343a5c6eb9553e8aaff9a6dbbb0a7b07a49af3
+[19-Aug-2020 08:02:52 UTC] PHP Fatal error:  Cannot declare class Vendor\Module\Block\Adminhtml\Widget\ImageChooser, because the name is already in use in /home/driton/public_html/app/code/Ereactor/MyModule/Block/Widget/ImageChooser.php on line 0
+[19-Aug-2020 08:03:01 UTC] PHP Fatal error:  Cannot declare class Vendor\Module\Block\Adminhtml\Widget\ImageChooser, because the name is already in use in /home/driton/public_html/app/code/Ereactor/MyModule/Block/Widget/ImageChooser.php on line 0
+[19-Aug-2020 08:03:14 UTC] PHP Fatal error:  Cannot declare class Vendor\Module\Block\Adminhtml\Widget\ImageChooser, because the name is already in use in /home/driton/public_html/app/code/Ereactor/MyModule/Block/Widget/ImageChooser.php on line 0
+[19-Aug-2020 08:03:23 UTC] PHP Fatal error:  Cannot declare class Vendor\Module\Block\Adminhtml\Widget\ImageChooser, because the name is already in use in /home/driton/public_html/app/code/Ereactor/MyModule/Block/Widget/ImageChooser.php on line 0
+[19-Aug-2020 08:19:51 UTC] PHP Fatal error:  Cannot declare class Vendor\Module\Block\Adminhtml\Widget\ImageChooser, because the name is already in use in /home/driton/public_html/app/code/Ereactor/MyModule/Block/Widget/ImageChooser.php on line 0
+[19-Aug-2020 14:57:27 UTC] http://m2play.web80.hostingpool.net/pub/media/catalog/tmp/category/abc_3.png saved
+[19-Aug-2020 14:57:39 UTC] http://m2play.web80.hostingpool.net/pub/media/catalog/tmp/category/abc_4.png saved
+[19-Aug-2020 14:59:06 UTC] http://m2play.web80.hostingpool.net/pub/media/catalog/tmp/category/abc_5.png saved
+[19-Aug-2020 15:00:15 UTC] http://m2play.web80.hostingpool.net/pub/media/catalog/tmp/category/abc_6.png saved
+[19-Aug-2020 15:01:46 UTC] http://m2play.web80.hostingpool.net/pub/media/catalog/tmp/category/abc_7.png saved
+[19-Aug-2020 15:04:47 UTC] 1
+[19-Aug-2020 15:04:47 UTC] 2
+[19-Aug-2020 15:04:48 UTC] cat saved
+[20-Aug-2020 07:03:13 UTC] 1
+[20-Aug-2020 07:03:13 UTC] 2
+[20-Aug-2020 07:03:13 UTC] cat saved
+[20-Aug-2020 07:03:41 UTC] 1
+[20-Aug-2020 07:03:41 UTC] 2
+[20-Aug-2020 07:03:41 UTC] cat saved
