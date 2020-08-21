@@ -12,12 +12,10 @@ class UploadWidget extends Template implements BlockInterface
     protected $_template = "widget/categoryIcons.phtml";
     protected $catRepo;
 
-
-    protected $_registry;
-
+    protected $_categoryFactory;  
 
 
-    public function __construct(Template\Context $context, array $data = [], CategoryRepositoryInterface $catRepo)
+    public function __construct(Template\Context $context, array $data = [], CategoryRepositoryInterface $catRepo, \Magento\Catalog\Model\CategoryFactory $categoryFactory)
 {
     $this->validator = $context->getValidator();
     $this->resolver = $context->getResolver();
@@ -28,6 +26,8 @@ class UploadWidget extends Template implements BlockInterface
     $this->templateContext = $this;
     $this->pageConfig = $context->getPageConfig();
     $this->catRepo = $catRepo;
+
+    $this->_categoryFactory = $categoryFactory;
     parent::__construct($context, $data);
 }
 
@@ -45,12 +45,13 @@ class UploadWidget extends Template implements BlockInterface
     error_log("getCatIcon");
     return $iconurls; 
     }
-
-    public function getCurrentCategory()
-    {        
-        return $this->_registry->registry('current_category');
+    public function getCategoryName()
+    {
+        $categoryId = '30';
+        $category = $this->_categoryFactory->create()->load($categoryId);
+        $categoryName = $category->getName();
+        return $categoryName;
     }
-
 
 }
 ?>
