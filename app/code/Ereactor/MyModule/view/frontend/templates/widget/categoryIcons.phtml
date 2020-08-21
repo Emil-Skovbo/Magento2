@@ -3,8 +3,6 @@
 <div class="row category-list m-auto thin-gutters justify-content-between container">
 <?php
 $objectManager =  \Magento\Framework\App\ObjectManager::getInstance(); 
-$appState = $objectManager->get('\Magento\Framework\App\State');
-$appState->setAreaCode('frontend');
 $registry = $objectManager->get('\Magento\Framework\Registry');
 $currentCategory = $registry->registry('current_category');
 foreach ($block->getCatIcon() as $value) {
