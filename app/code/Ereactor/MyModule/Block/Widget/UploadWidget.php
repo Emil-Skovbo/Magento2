@@ -42,7 +42,7 @@ class UploadWidget extends Template implements BlockInterface
         $iconurls[] = array(
             'name' => $categoryname->getName(),
             'value' => $categoryid->getCustomAttribute('thumbnail')->getValue(),
-            'path' => $categoryname->getPath()
+            'path' => $categoryname->getUrl()
         );
     }
     error_log("getCatIcon");
