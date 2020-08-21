@@ -17,7 +17,7 @@ class UploadWidget extends Template implements BlockInterface
 
 
 
-    public function __construct(Template\Context $context, array $data = [], CategoryRepositoryInterface $catRepo, Magento\Framework\Registry $registry)
+    public function __construct(Template\Context $context, array $data = [], CategoryRepositoryInterface $catRepo)
 {
     $this->validator = $context->getValidator();
     $this->resolver = $context->getResolver();
