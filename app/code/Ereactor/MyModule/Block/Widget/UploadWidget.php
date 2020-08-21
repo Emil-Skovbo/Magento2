@@ -49,7 +49,7 @@ class UploadWidget extends Template implements BlockInterface
     //echo $category->getId();
     //echo $category->getName();  
     print_r($category);
-    return $category->getName();;
+    return $category->getName();
 
     }
 
