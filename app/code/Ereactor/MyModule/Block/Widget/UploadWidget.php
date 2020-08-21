@@ -46,21 +46,10 @@ class UploadWidget extends Template implements BlockInterface
     return $iconurls; 
     }
 
-
-    public function _prepareLayout()
-    {
-        return parent::_prepareLayout();
-    }
-
     public function getCurrentCategory()
     {        
         return $this->_registry->registry('current_category');
     }
-
-    public function getCurrentProduct()
-    {        
-        return $this->_registry->registry('current_product');
-    }    
 
 
 }
