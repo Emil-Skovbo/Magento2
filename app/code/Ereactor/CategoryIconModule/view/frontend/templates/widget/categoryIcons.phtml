@@ -4,13 +4,10 @@
 <?php
 
 foreach ($block->getCatIcon() as $value) {
-    echo $value["url"];
-    echo $value["name"];
-    echo $value["img"];
 ?>
       <div class="row category-list m-auto thin-gutters justify-content-between container">
       <div class="col-3 py-2 px-0 col-lg text-center">
-          <a href="<?php $value["url"] ?>" class="d-block icon-text">
+          <a href="<?php echo $value["url"] ?>" class="d-block icon-text">
               <img alt="" class="img-fluid" src="<?php echo $value["img"] ?>">
               <span><?php echo $value["name"]?></span>
           </a>
