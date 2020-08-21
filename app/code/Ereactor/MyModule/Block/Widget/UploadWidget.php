@@ -41,7 +41,8 @@ class UploadWidget extends Template implements BlockInterface
         $categoryname = $this->_categoryFactory->create()->load($id);
         $iconurls[] = array(
             'name' => $categoryname->getName(),
-            'value' => $categoryid->getCustomAttribute('thumbnail')->getValue()
+            'value' => $categoryid->getCustomAttribute('thumbnail')->getValue(),
+            'path' => $categoryname->getPath()
         );
     }
     error_log("getCatIcon");
