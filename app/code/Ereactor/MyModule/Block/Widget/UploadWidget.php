@@ -29,7 +29,7 @@ class UploadWidget extends Template implements BlockInterface
 }
 
 
-public function getCatIcon(){
+    public function getCatIcon(){
 
 
     $catid = $this->getData("title");
@@ -41,6 +41,16 @@ public function getCatIcon(){
     }
     error_log("getCatIcon");
     return $iconurls; 
+    }
+
+    public function getCatName(){
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+    //echo $category->getId();
+    //echo $category->getName();  
+    print_r($category);
+    return $category->getName();;
+
     }
 
 }
