@@ -11,10 +11,13 @@ class UploadWidget extends Template implements BlockInterface
 {
     protected $_template = "widget/categoryIcons.phtml";
     protected $catRepo;
-    
 
 
-    public function __construct(Template\Context $context, array $data = [], CategoryRepositoryInterface $catRepo)
+    protected $_registry;
+
+
+
+    public function __construct(Template\Context $context, array $data = [], CategoryRepositoryInterface $catRepo, Magento\Framework\Registry $registry)
 {
     $this->validator = $context->getValidator();
     $this->resolver = $context->getResolver();
@@ -43,15 +46,22 @@ class UploadWidget extends Template implements BlockInterface
     return $iconurls; 
     }
 
-    public function getCatName(){
-    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-    $category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
-    //echo $category->getId();
-    //echo $category->getName();  
-    print_r($category);
-    return $category->getName();
 
+    public function _prepareLayout()
+    {
+        return parent::_prepareLayout();
     }
+
+    public function getCurrentCategory()
+    {        
+        return $this->_registry->registry('current_category');
+    }
+
+    public function getCurrentProduct()
+    {        
+        return $this->_registry->registry('current_product');
+    }    
+
 
 }
 ?>
