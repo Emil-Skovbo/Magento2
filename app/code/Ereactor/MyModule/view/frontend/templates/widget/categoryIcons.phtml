@@ -2,6 +2,8 @@
 <div class="categories-img mt-n4 mt-lg-0 pr-lg-2 order-2">
 <div class="row category-list m-auto thin-gutters justify-content-between container">
 <?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
 foreach ($block->getCatIcon() as $value) {
         echo $value
       ?>
@@ -9,7 +11,7 @@ foreach ($block->getCatIcon() as $value) {
       <div class="col-3 py-2 px-0 col-lg text-center">
           <a href="" class="d-block icon-text">
               <img alt="" class="img-fluid" src="<?php echo $value ?>">
-              <span><?php echo $block->getCatName() ?></span>
+              <span><?php echo $category->getName();?></span>
           </a>
       </div>
       </div>
