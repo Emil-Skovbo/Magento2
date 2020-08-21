@@ -6,7 +6,7 @@ print_r($block->getCatIcon());
 <div class="row category-list m-auto thin-gutters justify-content-between container">
 <?php
 foreach ($block->getCatIcon() as $value) {
-   //echo $value;
+        echo $value["_data:protected"]["value"];
       ?>
         <?php
 }
