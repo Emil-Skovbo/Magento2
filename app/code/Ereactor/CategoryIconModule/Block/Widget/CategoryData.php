@@ -1,5 +1,5 @@
 <?php
-namespace Ereactor\MyModule\Block\Widget;
+namespace Ereactor\CategoryIconModule\Block\Widget;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
@@ -7,14 +7,11 @@ use Magento\Catalog\Api\CategoryRepositoryInterface;
 
 
 
-class UploadWidget extends Template implements BlockInterface
+class CategoryData extends Template implements BlockInterface
 {
     protected $_template = "widget/categoryIcons.phtml";
     protected $catRepo;
-
     protected $_categoryFactory;  
-
-
     public function __construct(Template\Context $context, array $data = [], CategoryRepositoryInterface $catRepo, \Magento\Catalog\Model\CategoryFactory $categoryFactory)
 {
     $this->validator = $context->getValidator();
@@ -26,40 +23,27 @@ class UploadWidget extends Template implements BlockInterface
     $this->templateContext = $this;
     $this->pageConfig = $context->getPageConfig();
     $this->catRepo = $catRepo;
-
     $this->_categoryFactory = $categoryFactory;
     parent::__construct($context, $data);
 }
 
-
+// makes an array based on the input from widget.xml
     public function getCatIcon(){
-    $catid = $this->getData("title");
+    $catid = $this->getData("id");
     $catid = explode(",",$catid);
-    $iconurls = [];
+    $catinfo = [];
     foreach ($catid as $id) {
         $categoryid = $this->catRepo->get($id);
         $categoryname = $this->_categoryFactory->create()->load($id);
-        $iconurls[] = array(
+        $catinfo[] = array(
             'name' => $categoryname->getName(),
-            'value' => $categoryid->getCustomAttribute('thumbnail')->getValue(),
+            //gets the url to the uploaded img
+            'img' => $categoryid->getCustomAttribute('thumbnail')->getValue(),
+            //gets the url to the category we are linking to
             'url' => $categoryname->getUrl()
         );
     }
-    error_log("getCatIcon");
-    return $iconurls; 
+    return $catinfo; 
     }
-    public function getCategoryName()
-    {
-        $catid = $this->getData("title");
-        $catid = explode(",",$catid);
-        $catname = [];
-        foreach($catid as $id){
-            $category = $this->_categoryFactory->create()->load($id);
-            $catname[] = $category->getName();
-        }
-        
-        return $catname;
-    }
-
 }
 ?>
