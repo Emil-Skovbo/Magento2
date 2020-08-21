@@ -33,26 +33,31 @@ class UploadWidget extends Template implements BlockInterface
 
 
     public function getCatIcon(){
-
-
     $catid = $this->getData("title");
     $catid = explode(",",$catid);
     $iconurls = [];
     foreach ($catid as $id) {
-        $category = $this->catRepo->get($id);
-        $categoryName = $this->_categoryFactory->create()->load($id);
-        $iconurls[] = $category->getCustomAttribute('thumbnail')->getValue();
-        $iconurls[] = $categoryName->getName();
+        $categoryid = $this->catRepo->get($id);
+        $categoryname = $this->_categoryFactory->create()->load($id);
+        $iconurls[] = array(
+            'name' => $categoryname->getName(),
+            'value' => $categoryid->getCustomAttribute('thumbnail')->getValue()
+        );
     }
     error_log("getCatIcon");
     return $iconurls; 
     }
     public function getCategoryName()
     {
-        $categoryId = '30';
+        $catid = $this->getData("title");
+        $catid = explode(",",$catid);
+        $catname = [];
+        foreach($catid as $id){
+            $category = $this->_categoryFactory->create()->load($id);
+            $catname[] = $category->getName();
+        }
         
-        $categoryName = $category->getName();
-        return $categoryName;
+        return $catname;
     }
 
 }
