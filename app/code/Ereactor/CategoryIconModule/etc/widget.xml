@@ -6,10 +6,10 @@
             <parameter name="id" xsi:type="text" required="true" visible="true" sort_order="10">
                 <label>Category ids</label>
             </parameter>
-            <parameter name="multi_category_chooser" xsi:type="block" visible="true" required="true" sort_order="11">
+ <!--           <parameter name="multi_category_chooser" xsi:type="block" visible="true" required="true" sort_order="11">
                 <label translate="true">Select Categories</label>
                 <block class="Ereactor\CategoryIconModule\Block\Adminhtml\Category\Widget\CategoryChoice.php" />
-            </parameter>
+            </parameter>-->
         </parameters>
     </widget>
 </widgets>
