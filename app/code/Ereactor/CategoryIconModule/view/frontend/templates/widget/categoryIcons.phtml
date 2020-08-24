@@ -2,6 +2,12 @@
 <div class="categories-img mt-n4 mt-lg-0 pr-lg-2 order-2">
 <div class="row category-list m-auto thin-gutters justify-content-between container">
 <?php
+
+$ids = $block->getCatIcon();
+print_r($ids, true);
+
+return;
+
 foreach ($block->getCatIcon() as $value) {
      echo print_r($value);
 ?>
