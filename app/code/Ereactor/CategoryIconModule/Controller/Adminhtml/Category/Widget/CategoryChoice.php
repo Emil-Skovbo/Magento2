@@ -1,5 +1,5 @@
 <?php
-namespace Vendor\Module\Block\Adminhtml\Category\Widget;
+namespace Ereactor\CategoryIconModule\Block\Adminhtml\Category\Widget;
 
 class Chooser extends \Magento\Backend\Block\Template {
 
