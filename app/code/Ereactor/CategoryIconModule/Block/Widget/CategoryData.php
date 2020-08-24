@@ -36,10 +36,10 @@ class CategoryData extends Template implements BlockInterface
         $categoryid = $this->catRepo->get($id);
         $categoryname = $this->_categoryFactory->create()->load($id);
         $catinfo[] = array(
-            'name' => $categoryname->getName(),
+            'name' => print_r($categoryname->getName()),
             //gets the url to the uploaded img
             'img' => $categoryid->getCustomAttribute('thumbnail')->getValue(),
-            'test' => $categoryid->getCustomAttribute('category_id')->getValue(),
+            //'test' => print_r($categoryid->getCustomAttribute('category_id')),
             //gets the url to the category we are linking to
             'url' => $categoryname->getUrl()
         );
