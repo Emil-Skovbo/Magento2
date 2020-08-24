@@ -11,7 +11,7 @@ class CategoryData extends Template implements BlockInterface
 {
     protected $_template = "widget/categoryIcons.phtml";
     protected $catRepo;
-    protected $_categoryFactory;  
+    protected $_categoryFactory;
     public function __construct(Template\Context $context, array $data = [], CategoryRepositoryInterface $catRepo, \Magento\Catalog\Model\CategoryFactory $categoryFactory)
 {
     $this->validator = $context->getValidator();
@@ -30,21 +30,27 @@ class CategoryData extends Template implements BlockInterface
 // makes an array based on the input from widget.xml
     public function getCatIcon(){
     $catid = $this->getData("id");
+    $catidtest = $this->getData("category_id");
     $catid = explode(",",$catid);
     $catinfo = [];
     foreach ($catid as $id) {
         $categoryid = $this->catRepo->get($id);
         $categoryname = $this->_categoryFactory->create()->load($id);
+        $categorynametest = $this->_categoryFactory->create()->load($catidtest);
         $catinfo[] = array(
             'name' => $categoryname->getName(),
             //gets the url to the uploaded img
             'img' => $categoryid->getCustomAttribute('thumbnail')->getValue(),
-            'test' =>$categoryid->getCustomAttribute('category_id'),
             //gets the url to the category we are linking to
-            'url' => $categoryname->getUrl()
+            'url' => $categoryname->getUrl(),
+            'testname' => $categorynametest->getName(),
+            //gets the url to the uploaded img
+            'testimg' => $categoryid->getCustomAttribute('thumbnail')->getValue(),
+            //gets the url to the category we are linking to
+            'testurl' => $categorynametest->getUrl()
         );
     }
-    return $catinfo; 
-    }
+    return $catinfo;
+     }
 }
 ?>
