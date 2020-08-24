@@ -32,7 +32,7 @@ class UpgradeData implements UpgradeDataInterface
                 'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
                 'group' => 'General Information',
             ]
-        );
+        );  
         $setup->endSetup();
     }
 }
