@@ -20,35 +20,36 @@
                 </item>
             </argument>
         </field>
-        <field name="custom" component="Namespce_Modulename/js/select-category" sortOrder="20" formElement="select">
-<argument name="data" xsi:type="array">
-    <item name="config" xsi:type="array">
-        <item name="filterOptions" xsi:type="boolean">true</item>//to add filter in select-ui
-        <item name="multiple" xsi:type="boolean">false</item>//select multiple or not
-        <item name="showCheckbox" xsi:type="boolean">true</item>//to show checkboxes
-        <item name="disableLabel" xsi:type="boolean">true</item>
-    </item>
-</argument>
-<settings>
-    <required>true</required>
-    <validation>
-        <rule name="required-entry" xsi:type="boolean">true</rule>
-    </validation>
-    <elementTmpl>ui/grid/filters/elements/ui-select</elementTmpl>
-    <label translate="true">Select Category</label>//label to Field
-    <dataScope>data.custom</dataScope>//To map
-    <componentType>field</componentType>
-    <listens>
-        <link name="${ $.namespace }.${ $.namespace }:responseData">setParsed</link>
-    </listens>
-</settings>
-<formElements>
-    <select>
-        <settings>
-            <options class="Namespace\ModuleName\Ui\Component\Form\Category\Options"/>
-        </settings>
-    </select>
-</formElements>
-    </field>
+        <field name="category" component="Magento_Catalog/js/components/new-category" sortOrder="60" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filterOptions" xsi:type="boolean">true</item>
+                    <item name="multiple" xsi:type="boolean">true</item>
+                    <item name="showCheckbox" xsi:type="boolean">true</item>
+                    <item name="disableLabel" xsi:type="boolean">true</item>
+                    <item name="levelsVisibility" xsi:type="number">1</item>
+                </item>
+            </argument>
+            <settings>
+                <required>false</required>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+                <elementTmpl>ui/grid/filters/elements/ui-select</elementTmpl>
+                <label translate="true">Category</label>
+                <dataScope>category</dataScope>
+                <componentType>field</componentType>
+                <listens>
+                    <link name="${ $.namespace }.${ $.namespace }:responseData">setParsed</link>
+                </listens>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\Catalog\Ui\Component\Product\Form\Categories\Options"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
     </fieldset>
 </form>
