@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Codeclinics. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="category::base" title="Test" module="Test_Category" sortOrder="90" resource="Test_Category::sample"/>
+        <add id="test_category::category" title="Items" module="Test_Category" sortOrder="10" parent="category::base" action="test_category/category/" resource="Test_Category::category"/>
+    </menu>
+</config>
