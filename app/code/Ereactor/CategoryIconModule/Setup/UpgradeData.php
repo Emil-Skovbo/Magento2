@@ -35,4 +35,30 @@ class UpgradeData implements UpgradeDataInterface
         );  
         $setup->endSetup();
     }
+
+    public function install(
+        ModuleDataSetupInterface $setup,
+        ModuleContextInterface $context
+    ) {
+        $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
+
+        $eavSetup->addAttribute(
+            \Magento\Catalog\Model\Category::ENTITY,
+            'category_icon_select',
+            [
+                'type' => 'int',
+                'label' => 'Select Category Icon',
+                'input' => 'select',
+                'sort_order' => 333,
+                'source' => 'Vendor\Module\Model\Category\Attribute\Source\CategoryIconSelect',
+                'global' => 1,
+                'visible' => true,
+                'required' => true,
+                'user_defined' => false,
+                'default' => null,
+                'group' => 'General Information',
+                'backend' => ''
+            ]
+        );
+    }
 }
