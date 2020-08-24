@@ -30,7 +30,7 @@ class CategoryData extends Template implements BlockInterface
 // makes an array based on the input from widget.xml
     public function getCatIcon(){
     $catid = $this->getData("id");
-    $catidtest = $this->getData("category_id")->getValue();
+    $catidtest = $this->getData("category_id");
     $catid = explode(",",$catid);
     $catinfo = [];
     foreach ($catid as $id) {
@@ -45,7 +45,7 @@ class CategoryData extends Template implements BlockInterface
             'url' => $categoryname->getUrl(),
             'testname' => $categorynametest->getName(),
             //gets the url to the uploaded img
-            'testimg' => $categoryid->getCustomAttribute('thumbnail')->getValue(),
+            'testimg' => $catidtest,
             //gets the url to the category we are linking to
             'testurl' => $categorynametest->getUrl()
         );
