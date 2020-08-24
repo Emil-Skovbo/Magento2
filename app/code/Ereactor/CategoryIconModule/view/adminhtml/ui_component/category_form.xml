@@ -20,52 +20,5 @@
                 </item>
             </argument>
         </field>
-        <field name="field1">
-    <argument name="data" xsi:type="array">
-        <item name="options" xsi:type="object">Namespace\ModuleName\Model\Config\Source\Options</item>
-        <item name="config" xsi:type="array">
-            <item name="label" xsi:type="string" translate="true">Parent Option</item>
-            <item name="component" xsi:type="string">Namespace_ModuleName/js/form/element/options</item>
-            <item name="visible" xsi:type="boolean">true</item>
-            <item name="dataType" xsi:type="string">number</item>
-            <item name="formElement" xsi:type="string">select</item>
-            <item name="source" xsi:type="string">item</item>
-            <item name="dataScope" xsi:type="string">field1</item>
-            <item name="sortOrder" xsi:type="number">210</item>
-            <item name="validation" xsi:type="array">
-                <item name="required-entry" xsi:type="boolean">true</item>
-            </item>
-        </item>
-    </argument>
-</field>
-
-<field name="field2Depend1">
-    <argument name="data" xsi:type="array">
-        <item name="config" xsi:type="array">
-            <item name="label" xsi:type="string">Field 1</item>
-            <item name="dataType" xsi:type="string">text</item>
-            <item name="formElement" xsi:type="string">input</item>
-            <item name="source" xsi:type="string">item</item>
-            <item name="sortOrder" xsi:type="number">220</item>
-            <item name="breakLine" xsi:type="boolean">true</item>
-            <item name="visibleValue" xsi:type="string">2</item>
-            <item name="visible" xsi:type="boolean">false</item>
-        </item>
-    </argument>
-</field>
-<field name="field3Depend1">
-    <argument name="data" xsi:type="array">
-        <item name="config" xsi:type="array">
-            <item name="label" xsi:type="string">Field 2</item>
-            <item name="dataType" xsi:type="string">text</item>
-            <item name="formElement" xsi:type="string">input</item>
-            <item name="source" xsi:type="string">item</item>
-            <item name="sortOrder" xsi:type="number">230</item>
-            <item name="breakLine" xsi:type="boolean">true</item>
-            <item name="visibleValue" xsi:type="string">0</item>
-            <item name="visible" xsi:type="boolean">false</item>
-        </item>
-    </argument>
-</field>
     </fieldset>
 </form>
