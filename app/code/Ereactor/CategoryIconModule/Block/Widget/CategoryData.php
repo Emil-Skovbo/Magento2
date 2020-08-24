@@ -39,6 +39,7 @@ class CategoryData extends Template implements BlockInterface
             'name' => $categoryname->getName(),
             //gets the url to the uploaded img
             'img' => $categoryid->getCustomAttribute('thumbnail')->getValue(),
+            'test' => $categoryid->getCustomAttribute('category_id')->getValue(),
             //gets the url to the category we are linking to
             'url' => $categoryname->getUrl()
         );

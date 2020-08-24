@@ -20,7 +20,7 @@
                 </item>
             </argument>
         </field>
-         <field name="category_id">
+        <field name="category_id">
         <argument name="data" xsi:type="array">
             <item name="options" xsi:type="object">Magento\Catalog\Ui\Component\Product\Form\Categories\Options</item>
             <item name="config" xsi:type="array">
