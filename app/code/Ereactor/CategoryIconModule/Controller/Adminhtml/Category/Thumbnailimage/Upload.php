@@ -13,12 +13,11 @@ class Upload extends \Magento\Backend\App\Action
     protected $baseTmpPath;
     protected $imageUploader;
     protected $catRepo;
-    protected $registry;
+
     
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
-        \Magento\Framework\Registry $registry,
         CategoryRepositoryInterface $catRepo
     ) {
         $this->imageUploader = $imageUploader;
@@ -47,9 +46,4 @@ class Upload extends \Magento\Backend\App\Action
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
     }
 
-    public function getCurrentCategory()
-    {        
-        $categoryId = (int)$this->getRequest()->getParam('id', false);
-        return $this->registry->get($categoryId);
-    }
 }
