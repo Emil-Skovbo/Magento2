@@ -3,6 +3,7 @@ namespace Ereactor\CategoryIconModule\Controller\Adminhtml\Category\Thumbnailima
 
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Catalog\Api\CategoryRepositoryInterface;
+use Magento\Framework\Registry;
 
 
 /**
@@ -13,22 +14,25 @@ class Upload extends \Magento\Backend\App\Action
     protected $baseTmpPath;
     protected $imageUploader;
     protected $catRepo;
-
+    private $registry;
     
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
-        CategoryRepositoryInterface $catRepo
+        CategoryRepositoryInterface $catRepo,
+        Registry $registry
     ) {
         $this->imageUploader = $imageUploader;
         $this->catRepo = $catRepo;
         parent::__construct($context);
+        $this->registry = $registry;
     }
     public function execute() {
         try {
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
             $urlPath = $result["url"];
-            $category = $this->catRepo->get(38);
+            $category = $this->registry->registry('current_category');
+            $category = $this->catRepo->get($category->getId());
             error_log($urlPath . " saved");
             //error_log(getCurrentCategory());
             $category->setCustomAttribute('thumbnail', $urlPath);
