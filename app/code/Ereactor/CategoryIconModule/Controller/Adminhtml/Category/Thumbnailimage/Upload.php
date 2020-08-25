@@ -31,7 +31,7 @@ class Upload extends \Magento\Backend\App\Action
             $urlPath = $result["url"];
             $category = $this->catRepo->get(38);
             error_log($urlPath . " saved");
-            error_log(getCurrentCategory());
+            //error_log(getCurrentCategory());
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->catRepo->save($category);
             $result['cookie'] = [
@@ -49,6 +49,7 @@ class Upload extends \Magento\Backend\App\Action
 
     public function getCurrentCategory()
     {        
-        return $this->_registry->registry('current_category');
+        $categoryId = (int)$this->getRequest()->getParam('id', false);
+        return $this->categoryRepository->get($categoryId);
     }
 }
