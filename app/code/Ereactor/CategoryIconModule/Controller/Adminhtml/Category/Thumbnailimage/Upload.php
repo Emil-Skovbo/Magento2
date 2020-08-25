@@ -14,7 +14,7 @@ class Upload extends \Magento\Backend\App\Action
     protected $baseTmpPath;
     protected $imageUploader;
     protected $catRepo;
-    private $registry;
+    protected $registry;
     
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
@@ -31,12 +31,9 @@ class Upload extends \Magento\Backend\App\Action
         try {
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
             $urlPath = $result["url"];
-            //$categoryid = $this->registry->registry('current_category');
-            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-    $categoryid = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+            $categoryid = $this->registry->registry('current_category');
             $category = $this->catRepo->get($categoryid->getId());
-            error_log($urlPath . " saved");
-            //error_log(getCurrentCategory());
+            error_log($urlPath . " saved");;
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->catRepo->save($category);
             $result['cookie'] = [
