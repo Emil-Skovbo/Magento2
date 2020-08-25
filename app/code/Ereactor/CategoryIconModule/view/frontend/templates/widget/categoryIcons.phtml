@@ -7,7 +7,33 @@
 
 foreach ($block->getCatIcon() as $value) {
      echo print_r($value);
-     echo print_r($blocktest->getCurrentCategory());
+     //echo print_r($blocktest->getCurrentCategory());
+?>
+      <div class="row category-list m-auto thin-gutters justify-content-between container">
+      <div class="col-3 py-2 px-0 col-lg text-center">
+          <a href="<?php echo $value["url"] ?>" class="d-block icon-text">
+              <img alt="" class="img-fluid" src="<?php echo $value["img"] ?>">
+              <span><?php echo $value["name"]?></span>
+          </a>
+      </div>
+      </div>
+      
+        <?php 
+
+}
+?>
+</div>
+</div>
+
+<div class="categories-img mt-n4 mt-lg-0 pr-lg-2 order-2">
+<div class="row category-list m-auto thin-gutters justify-content-between container">
+<?php
+
+
+
+foreach ($block->getCatIcon() as $value) {
+     echo print_r($value);
+     //echo print_r($blocktest->getCurrentCategory());
 ?>
       <div class="row category-list m-auto thin-gutters justify-content-between container">
       <div class="col-3 py-2 px-0 col-lg text-center">
