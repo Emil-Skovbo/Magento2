@@ -10,19 +10,27 @@
             <argument name="baseTmpPath" xsi:type="string">catalog/tmp/category</argument>
             <argument name="basePath" xsi:type="string">catalog/category</argument>
             <argument name="allowedExtensions" xsi:type="array">
-                <item name="jpg" xsi:type="string">jpg</item>
-                <item name="jpeg" xsi:type="string">jpeg</item>
-                <item name="gif" xsi:type="string">gif</item>
-                <item name="png" xsi:type="string">png</item>
-            <item name="allowed" xsi:type="array">
-                <item name="svg" xsi:type="string">text/html</item>
-            </item>
-            <item name="image_allowed" xsi:type="array">
-                <item name="svg" xsi:type="string">text/html</item>
-            </item>
-            <item name="media_allowed" xsi:type="array">
-                <item name="svg" xsi:type="string">text/html</item>
-            </item>
+                <item name="allowed" xsi:type="array">
+                    <item name="jpg" xsi:type="string">image/jpg</item>
+                    <item name="jpeg" xsi:type="string">image/jpeg</item>
+                    <item name="png" xsi:type="string">image/png</item>
+                    <item name="gif" xsi:type="string">image/gif</item>
+                    <item name="svg" xsi:type="string">image/svg</item>
+                </item>
+                <item name="image_allowed" xsi:type="array">
+                    <item name="jpg" xsi:type="string">image/jpg</item>
+                    <item name="jpeg" xsi:type="string">image/jpeg</item>
+                    <item name="png" xsi:type="string">image/png</item>
+                    <item name="gif" xsi:type="string">image/gif</item>
+                </item>
+                <item name="media_allowed" xsi:type="array">
+                    <item name="flv" xsi:type="string">video/x-flv</item>
+                    <item name="avi" xsi:type="string">video/x-msvideo</item>
+                    <item name="mov" xsi:type="string">video/x-sgi-movie</item>
+                    <item name="rm" xsi:type="string">application/vnd.rn-realmedia</item>
+                    <item name="wmv" xsi:type="string">video/x-ms-wmv</item>
+                </item>
+            </argument>
         </argument>
         </arguments>
     </virtualType>
