@@ -14,18 +14,15 @@ class Upload extends \Magento\Backend\App\Action
     protected $baseTmpPath;
     protected $imageUploader;
     protected $catRepo;
-    protected $registry;
     
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
-        CategoryRepositoryInterface $catRepo,
-        Registry $registry
+        CategoryRepositoryInterface $catRepo
     ) {
         $this->imageUploader = $imageUploader;
         $this->catRepo = $catRepo;
         parent::__construct($context);
-        $this->registry = $registry;
     }
     public function execute() {
         try {
