@@ -18,13 +18,7 @@ foreach ($block->getCatIcon() as $value) {
       </div>
       
         <?php 
-        $myBlock = \Magento\Framework\App\ObjectManager::getInstance()->get('Ereactor\CategoryIconmodule\Block\Widget\testcat');
- 
-        // print current category data
-        if ($currentCategory = $myBlock->getCurrentCategory()) {    
-            echo $currentCategory->getName() . '<br />';
-            echo $currentCategory->getUrl() . '<br />';        
-        }
+
 }
 ?>
 </div>
