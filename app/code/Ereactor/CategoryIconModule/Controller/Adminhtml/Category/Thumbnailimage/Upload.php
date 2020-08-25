@@ -37,7 +37,7 @@ class Upload extends \Magento\Backend\App\Action
            // error_log("test4");
             $id = $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);
             $path_parts= explode('/', $id);
-            $user = $path_parts[10];
+            $user = $path_parts[8];
             error_log($user . " id");
             $category = $this->catRepo->get($user);
            // error_log($urlPath . " saved");
