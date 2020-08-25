@@ -1,5 +1,5 @@
 <?php
-namespace Ereactor\CategoryIconModule\Block\Widget;
+namespace Ereactor\CategoryIconModule\Controller\Adminhtml\Category\Thumbnailimage;
 class testcat extends \Magento\Framework\View\Element\Template
 {
         protected $_registry;
