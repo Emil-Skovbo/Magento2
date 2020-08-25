@@ -21,11 +21,13 @@ class testcat extends \Magento\Framework\View\Element\Template
     
     public function getCurrentCategory()
     {        
+        error_log(print_r($this->_registry->registry('current_category'),true));
         return $this->_registry->registry('current_category');
     }
     
     public function getCurrentProduct()
     {        
+        error_log(print_r($this->_registry->registry('current_product'),true));
         return $this->_registry->registry('current_product');
     }    
     
