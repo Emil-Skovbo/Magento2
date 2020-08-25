@@ -30,7 +30,6 @@
                     <item name="rm" xsi:type="string">application/vnd.rn-realmedia</item>
                     <item name="wmv" xsi:type="string">video/x-ms-wmv</item>
                 </item>
-            </argument>
         </argument>
         </arguments>
     </virtualType>
