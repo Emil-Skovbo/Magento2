@@ -4,7 +4,7 @@ namespace Ereactor\CategoryIconModule\Controller\Adminhtml\Category\Thumbnailima
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Catalog\Api\CategoryRepositoryInterface;
 use Magento\Framework\Registry;
-include ("app\code\Ereactor\CategoryIconModule\Block\Widget\testcat.php");
+include ("testcat.php");
 
 /**
  * Class Upload
