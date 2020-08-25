@@ -31,7 +31,10 @@ class Upload extends \Magento\Backend\App\Action
         try {
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
             $urlPath = $result["url"];
+            
             $categoryid = $this->registry->registry('current_category');
+            
+            error_log(print_r($categoryid, true));
             $category = $this->catRepo->get($categoryid->getId());
             error_log($urlPath . " saved");;
             $category->setCustomAttribute('thumbnail', $urlPath);
