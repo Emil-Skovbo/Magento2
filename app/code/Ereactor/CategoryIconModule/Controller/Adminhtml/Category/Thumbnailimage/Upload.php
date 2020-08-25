@@ -17,6 +17,7 @@ class Upload extends \Magento\Backend\App\Action
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
+        \Magento\Framework\Registry $registry,
         CategoryRepositoryInterface $catRepo
     ) {
         $this->imageUploader = $imageUploader;
@@ -27,7 +28,8 @@ class Upload extends \Magento\Backend\App\Action
         try {
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
             $urlPath = $result["url"];
-            $category = $this->catRepo->get(38);
+            $categoryid = $this->catRepo->get($this->_registry->registry('current_category'));
+            $category = $this->catRepo->get($categoryid);
             error_log($urlPath . " saved");
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->catRepo->save($category);
