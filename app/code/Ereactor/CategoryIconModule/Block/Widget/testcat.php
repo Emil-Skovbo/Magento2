@@ -1,6 +1,6 @@
 <?php
-namespace Mageplaza\HelloWorld\Block;
-class HelloWorld extends \Magento\Framework\View\Element\Template
+namespace Ereactor\CategoryIconModule\Block\Widget;
+class testcat extends \Magento\Framework\View\Element\Template
 {
         protected $_registry;
         
