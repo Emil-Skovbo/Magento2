@@ -50,6 +50,6 @@ class Upload extends \Magento\Backend\App\Action
     public function getCurrentCategory()
     {        
         $categoryId = (int)$this->getRequest()->getParam('id', false);
-        return $this->catRepo->get($categoryId);
+        return $this->registry->get($categoryId);
     }
 }
