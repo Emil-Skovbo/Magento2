@@ -12,6 +12,7 @@ if($getCategory) {
     echo 'Current page is not a category page ';
 }
 
+echo $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);
 
 foreach ($block->getCatIcon() as $value) {
      echo print_r($value);

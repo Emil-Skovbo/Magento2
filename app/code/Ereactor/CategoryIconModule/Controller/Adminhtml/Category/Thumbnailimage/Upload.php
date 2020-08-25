@@ -4,7 +4,6 @@ namespace Ereactor\CategoryIconModule\Controller\Adminhtml\Category\Thumbnailima
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Catalog\Api\CategoryRepositoryInterface;
 use Magento\Framework\Registry;
-include ("testcat.php");
 
 /**
  * Class Upload
@@ -28,16 +27,16 @@ class Upload extends \Magento\Backend\App\Action
         try {
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
             $urlPath = $result["url"];
-            error_log("test1");
+           // error_log("test1");
            // $categoryid = $this->registry->registry('current_category');
             //error_log(print_r($categoryid, true)
-            error_log("test2");
+           // error_log("test2");
             //$id = $tc->getCurrentCategory();
-            error_log("test3");
+           // error_log("test3");
             //error_log(print_r($id, true));
-            error_log("test4");
+           // error_log("test4");
             $category = $this->catRepo->get(38);
-            error_log($urlPath . " saved");
+           // error_log($urlPath . " saved");
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->catRepo->save($category);
             $result['cookie'] = [
