@@ -15,6 +15,7 @@ class CurrentCategory extends \Magento\Framework\View\Element\Template
     /* $categoryId as category id */
     public function getCategory(){
         try {
+            error_log(print_r($this->registry->registry('current_category'), true));
             return $this->registry->registry('current_category');
         } catch (\Magento\Framework\Exception\NoSuchEntityException $e) {
             return ['response' => 'Category Not Found'];
