@@ -28,9 +28,9 @@ class Upload extends \Magento\Backend\App\Action
         try {
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
             $urlPath = $result["url"];
-            $categoryid = $this->catRepo->get($this->_registry->registry('current_category'));
-            $category = $this->catRepo->get($categoryid);
+            $category = $this->catRepo->get(38);
             error_log($urlPath . " saved");
+            error_log(getCurrentCategory());
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->catRepo->save($category);
             $result['cookie'] = [
@@ -44,5 +44,10 @@ class Upload extends \Magento\Backend\App\Action
             $result = ['error' => $e->getMessage(), 'errorcode' => $e->getCode()];
         }
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
+    }
+
+    public function getCurrentCategory()
+    {        
+        return $this->_registry->registry('current_category');
     }
 }
