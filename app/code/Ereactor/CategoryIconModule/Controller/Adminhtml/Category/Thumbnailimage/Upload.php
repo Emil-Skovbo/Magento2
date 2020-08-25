@@ -30,8 +30,8 @@ class Upload extends \Magento\Backend\App\Action
             $urlPath = $result["url"];
            // $categoryid = $this->registry->registry('current_category');
             //error_log(print_r($categoryid, true));
-            $Testcat = new testcat();
-            $id = $testcat->getCurrentCategory();
+            $tc = new testcat();
+            $id = $tc->getCurrentCategory();
             error_log(print_r($id, true));
             $category = $this->catRepo->get(38);
             error_log($urlPath . " saved");
