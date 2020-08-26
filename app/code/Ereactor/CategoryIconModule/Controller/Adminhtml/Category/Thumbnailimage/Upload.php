@@ -18,7 +18,8 @@ class Upload extends \Magento\Backend\App\Action
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
         \Magento\Framework\Registry $registry,
-        CategoryRepositoryInterface $catRepo
+        CategoryRepositoryInterface $catRepo,
+        array $data = []
     ) {
         $this->imageUploader = $imageUploader;
         $this->catRepo = $catRepo;
