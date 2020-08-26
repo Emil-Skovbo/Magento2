@@ -27,7 +27,9 @@ class Upload extends \Magento\Backend\App\Action
         $this->layerResolver = $layerResolver;
     }
     public function execute() {
+        error_log("before test");
         try {
+            error_log("test");
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
             $urlPath = $result["url"];
            // error_log("test1");
