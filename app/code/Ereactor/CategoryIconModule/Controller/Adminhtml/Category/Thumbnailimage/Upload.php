@@ -14,17 +14,20 @@ class Upload extends \Magento\Backend\App\Action
     protected $imageUploader;
     protected $catRepo;
     protected $layerResolver;
+    protected $_storeManager;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
         //\Magento\Catalog\Model\Layer\Resolver $layerResolver,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
         CategoryRepositoryInterface $catRepo
     ) {
         $this->imageUploader = $imageUploader;
         $this->catRepo = $catRepo;
         parent::__construct($context);
        // $this->layerResolver = $layerResolver;
+       $this->_storeManager = $storeManager;
     }
     public function execute() {
         error_log("before test");
