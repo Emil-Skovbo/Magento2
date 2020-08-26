@@ -79,9 +79,8 @@ class Upload extends \Magento\Backend\App\Action
     public  function getCategory()
     {
         error_log("does this even show");
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-   $category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+        $category = (int)$this->getRequest()->getParam('id', false);//get current category
             error_log("category = ",$category);
-        return $category->getId();
+        return $category;
     }
 }
