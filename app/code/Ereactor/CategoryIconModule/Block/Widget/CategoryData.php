@@ -47,6 +47,7 @@ class CategoryData extends Template implements BlockInterface
             'testurl2' => $this->getData("category_id")
         );
     }
+    error_log("works");
     return $catinfo;
      }
 }
