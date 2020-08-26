@@ -48,7 +48,7 @@ class Upload extends \Magento\Backend\App\Action
         //    $user = $path_parts[9];
         //    error_log($user . " id");
             error_log("before id");
-            $id = getCategory();
+            $id = $this->getCategory();
             error_log("current id = ", $id);
            $category = $this->categoryRepository->get(38);
            // error_log($urlPath . " saved");
