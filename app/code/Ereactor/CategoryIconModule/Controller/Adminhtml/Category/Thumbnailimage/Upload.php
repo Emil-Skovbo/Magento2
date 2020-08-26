@@ -13,18 +13,18 @@ class Upload extends \Magento\Backend\App\Action
     protected $baseTmpPath;
     protected $imageUploader;
     protected $catRepo;
-    private $layerResolver;
+    //private $layerResolver;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
-        \Magento\Catalog\Model\Layer\Resolver $layerResolver,
+        //\Magento\Catalog\Model\Layer\Resolver $layerResolver,
         CategoryRepositoryInterface $catRepo
     ) {
         $this->imageUploader = $imageUploader;
         $this->catRepo = $catRepo;
         parent::__construct($context);
-        $this->layerResolver = $layerResolver;
+        //$this->layerResolver = $layerResolver;
     }
     public function execute() {
         error_log("before test");
@@ -64,9 +64,9 @@ class Upload extends \Magento\Backend\App\Action
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
     }
 
-    public function getCurrentCategory()
+ /*   public function getCurrentCategory()
     {
         error_log("test1");
         return $this->layerResolver->get()->getCurrentCategory();
-    }
+    }*/
 }
