@@ -58,7 +58,7 @@ class Upload extends \Magento\Backend\App\Action
             error_log("before id");
             $id = $this->getCategory();
             //error_log("current id = ", $id);
-            $category = $this->categoryRepository->get($id);
+            $category = $this->categoryRepository->get(38);
            // error_log($urlPath . " saved");
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->categoryRepository->save($category);
