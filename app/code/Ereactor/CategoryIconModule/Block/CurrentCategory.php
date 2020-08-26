@@ -15,13 +15,19 @@ class CurrentCategory extends \Magento\Framework\View\Element\Template
     }
  
     /* $categoryId as category id */
-    public function getCategory(){
-        try {
-            //error_log(print_r($this->registry->registry('current_category'), true));
+    public function getCurrentCategory()
+    {
+        $category = $this->getData('current_category');
+        if ($category === null) {
             $category = $this->registry->registry('current_category');
-            return $category;
-        } catch (\Magento\Framework\Exception\NoSuchEntityException $e) {
-            return ['response' => 'Category Not Found'];
+            if ($category) {
+                $this->setData('current_category', $category);
+            } else {
+                $category = $this->categoryRepository->get($this->getCurrentStore()->getRootCategoryId());
+                $this->setData('current_category', $category);
+            }
         }
+    
+        return $category;
     }
 }
