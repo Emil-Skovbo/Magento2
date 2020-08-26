@@ -4,7 +4,6 @@ namespace Ereactor\CategoryIconModule\Block\Widget;
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Catalog\Api\CategoryRepositoryInterface;
-use Magento\Framework\Registry;
 
 
 
@@ -16,7 +15,7 @@ class CategoryData extends Template implements BlockInterface
     private $layerResolver;
     public function __construct(Template\Context $context, array $data = [], 
     CategoryRepositoryInterface $catRepo, \Magento\Catalog\Model\CategoryFactory $categoryFactory,
-    \Magento\Catalog\Model\Layer\Resolver $layerResolver, Registry $registry)
+    \Magento\Catalog\Model\Layer\Resolver $layerResolver)
 {
     $this->validator = $context->getValidator();
     $this->resolver = $context->getResolver();
@@ -29,7 +28,6 @@ class CategoryData extends Template implements BlockInterface
     $this->catRepo = $catRepo;
     $this->_categoryFactory = $categoryFactory;
     parent::__construct($context, $data);
-    $this->registry = $registry;
     $this->layerResolver = $layerResolver;
 }
 
