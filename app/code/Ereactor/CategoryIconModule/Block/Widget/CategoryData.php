@@ -4,6 +4,7 @@ namespace Ereactor\CategoryIconModule\Block\Widget;
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Catalog\Api\CategoryRepositoryInterface;
+use Magento\Framework\Registry;
 
 
 
@@ -12,7 +13,9 @@ class CategoryData extends Template implements BlockInterface
     protected $_template = "widget/categoryIcons.phtml";
     protected $catRepo;
     protected $_categoryFactory;
-    public function __construct(Template\Context $context, array $data = [], CategoryRepositoryInterface $catRepo, \Magento\Catalog\Model\CategoryFactory $categoryFactory)
+    public function __construct(Template\Context $context, array $data = [], 
+    CategoryRepositoryInterface $catRepo, \Magento\Catalog\Model\CategoryFactory $categoryFactory,
+        Registry $registry)
 {
     $this->validator = $context->getValidator();
     $this->resolver = $context->getResolver();
@@ -25,6 +28,7 @@ class CategoryData extends Template implements BlockInterface
     $this->catRepo = $catRepo;
     $this->_categoryFactory = $categoryFactory;
     parent::__construct($context, $data);
+    $this->registry = $registry;
 }
 
 // makes an array based on the input from widget.xml
@@ -50,5 +54,26 @@ class CategoryData extends Template implements BlockInterface
     error_log("works");
     return $catinfo;
      }
+
+         /* $categoryId as category id */
+    public function getCurrentCategory()
+    {
+        error_log("test1");
+        $category = $this->getData('current_category');
+        if ($category === null) {
+            error_log("test2");
+            $category = $this->registry->registry('current_category');
+            if ($category) {
+                $this->setData('current_category', $category);
+                error_log("test3");
+            } else {
+                $category = $this->categoryRepository->get($this->getCurrentStore()->getRootCategoryId());
+                $this->setData('current_category', $category);
+                error_log("test4");
+            }
+        }
+        error_log("test5");
+        return $category;
+    }
 }
 ?>
