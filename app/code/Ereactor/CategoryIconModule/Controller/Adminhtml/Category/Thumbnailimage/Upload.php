@@ -84,8 +84,8 @@ class Upload extends \Magento\Backend\App\Action
     public  function getCategory()
     {
         error_log("does this even show");
-        $this->request->getParams(); // all params
+        $category = $this->request->getParams('id'); // all params
         error_log("category = ",$category);
-        return $this->request->getParam('id');
+        return $category;
     }
 }
