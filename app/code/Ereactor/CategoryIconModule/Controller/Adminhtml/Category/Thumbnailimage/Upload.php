@@ -38,6 +38,8 @@ class Upload extends \Magento\Backend\App\Action
             error_log("test");
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
             $urlPath = $result["url"];
+            $idPath = $result["id"];
+            error_log("id test " , $idPath);
            // error_log("test1");
            // $categoryid = $this->registry->registry('current_category');
             //error_log(print_r($categoryid, true)
@@ -53,7 +55,7 @@ class Upload extends \Magento\Backend\App\Action
             error_log("before id");
             $id = $this->getCategory();
             error_log("current id = ", $id);
-           $category = $this->categoryRepository->get(38);
+            $category = $this->categoryRepository->get(38);
            // error_log($urlPath . " saved");
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->categoryRepository->save($category);
