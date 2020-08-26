@@ -17,6 +17,7 @@ class Upload extends \Magento\Backend\App\Action
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
+        \Magento\Framework\Registry $registry,
         CategoryRepositoryInterface $catRepo
     ) {
         $this->imageUploader = $imageUploader;
@@ -35,11 +36,11 @@ class Upload extends \Magento\Backend\App\Action
            // error_log("test3");
             //error_log(print_r($id, true));
            // error_log("test4");
-            $id = $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => false]);
-            $path_parts= explode('/', $id);
-            $user = $path_parts[9];
-            error_log($user . " id");
-            $category = $this->catRepo->get($user);
+            //$id = $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => false]);
+            //$path_parts= explode('/', $id);
+            //$user = $path_parts[9];
+            //error_log($user . " id");
+            $category = $this->catRepo->get($this->_registry->registry('current_category'));
            // error_log($urlPath . " saved");
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->catRepo->save($category);
