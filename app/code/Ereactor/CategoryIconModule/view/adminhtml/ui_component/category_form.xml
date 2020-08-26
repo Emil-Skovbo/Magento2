@@ -20,6 +20,10 @@
                 </item>
             </argument>
         </field>
+        <field name="select id">
+        <argument name="data" xsi:type="string">
+                </argument>
+    </field>
         <field name="category_id">
         <argument name="data" xsi:type="array">
             <item name="options" xsi:type="object">Magento\Catalog\Ui\Component\Product\Form\Categories\Options</item>
@@ -35,7 +39,7 @@
                 <item name="disableLabel" xsi:type="boolean">true</item>
                 <item name="multiple" xsi:type="boolean">true</item>
                 <item name="levelsVisibility" xsi:type="number">1</item>
-                <item name="sortOrder" xsi:type="number">30</item>
+                <item name="sortOrder" xsi:type="number">31</item>
                 <item name="required" xsi:type="boolean">true</item>
                 <item name="validation" xsi:type="array">
                     <item name="required-entry" xsi:type="boolean">false</item>
