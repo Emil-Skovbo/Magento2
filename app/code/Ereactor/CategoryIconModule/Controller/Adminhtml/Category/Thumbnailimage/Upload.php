@@ -16,6 +16,7 @@ class Upload extends \Magento\Backend\App\Action
     protected $layerResolver;
     protected $_storeManager;
     private $registry;
+    protected $request;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
@@ -23,6 +24,7 @@ class Upload extends \Magento\Backend\App\Action
         //\Magento\Catalog\Model\Layer\Resolver $layerResolver,
         //\Magento\Store\Model\StoreManagerInterface $storeManager,
         CategoryRepositoryInterface $categoryRepository,
+        \Magento\Framework\App\Request\Http $request,
         Registry $registry
     ) {
         $this->imageUploader = $imageUploader;
@@ -31,6 +33,7 @@ class Upload extends \Magento\Backend\App\Action
        // $this->layerResolver = $layerResolver;
        //$this->_storeManager = $storeManager;
        $this->registry = $registry;
+       $this->request = $request;
     }
     public function execute() {
         error_log("before test");
@@ -81,8 +84,8 @@ class Upload extends \Magento\Backend\App\Action
     public  function getCategory()
     {
         error_log("does this even show");
-        $category = (int)$this->getRequest()->getParam('id', false);//get current category
-            error_log("category = ",$category);
-        return $category;
+        $this->request->getParams(); // all params
+        error_log("category = ",$category);
+        return $this->request->getParam('id');
     }
 }
