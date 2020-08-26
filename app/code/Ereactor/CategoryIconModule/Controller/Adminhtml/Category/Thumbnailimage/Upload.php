@@ -42,7 +42,7 @@ class Upload extends \Magento\Backend\App\Action
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
             $urlPath = $result["url"];
            // $idPath = $result["id"];
-            error_log("id test " , $idPath);
+           // error_log("id test " , $idPath);
            // error_log("test1");
            // $categoryid = $this->registry->registry('current_category');
             //error_log(print_r($categoryid, true)
