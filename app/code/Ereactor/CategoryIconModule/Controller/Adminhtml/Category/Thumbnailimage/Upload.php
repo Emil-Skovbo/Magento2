@@ -42,7 +42,10 @@ class Upload extends \Magento\Backend\App\Action
         //    $path_parts= explode('/', $id);
         //    $user = $path_parts[9];
         //    error_log($user . " id");
-           $category = $this->catRepo->get(getCurrentCategory()->getId());
+            error_log("before id");
+            $id = getCurrentCategory()->getId();
+            error_log("current id = ", $id);
+           $category = $this->catRepo->get($id);
            // error_log($urlPath . " saved");
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->catRepo->save($category);
