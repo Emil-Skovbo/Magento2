@@ -13,7 +13,7 @@ class Upload extends \Magento\Backend\App\Action
     protected $baseTmpPath;
     protected $imageUploader;
     protected $catRepo;
-    private $layerResolver;
+    protected $layerResolver;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
