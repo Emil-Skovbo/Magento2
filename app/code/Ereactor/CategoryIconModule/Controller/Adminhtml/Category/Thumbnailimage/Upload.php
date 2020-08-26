@@ -13,15 +13,18 @@ class Upload extends \Magento\Backend\App\Action
     protected $baseTmpPath;
     protected $imageUploader;
     protected $catRepo;
-    
+    private $layerResolver;
+
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
+        \Magento\Catalog\Model\Layer\Resolver $layerResolver,
         CategoryRepositoryInterface $catRepo
     ) {
         $this->imageUploader = $imageUploader;
         $this->catRepo = $catRepo;
         parent::__construct($context);
+        $this->layerResolver = $layerResolver;
     }
     public function execute() {
         try {
@@ -39,7 +42,7 @@ class Upload extends \Magento\Backend\App\Action
         //    $path_parts= explode('/', $id);
         //    $user = $path_parts[9];
         //    error_log($user . " id");
-           $category = $this->catRepo->get(38);
+           $category = $this->catRepo->get(getCurrentCategory()->getId());
            // error_log($urlPath . " saved");
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->catRepo->save($category);
@@ -54,5 +57,11 @@ class Upload extends \Magento\Backend\App\Action
             $result = ['error' => $e->getMessage(), 'errorcode' => $e->getCode()];
         }
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
+    }
+
+    public function getCurrentCategory()
+    {
+        error_log("test1");
+        return $this->layerResolver->get()->getCurrentCategory();
     }
 }
