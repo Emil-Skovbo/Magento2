@@ -3,14 +3,14 @@
 <div class="row category-list m-auto thin-gutters justify-content-between container">
 <?php
 $getCategory = $block->getCurrentCategory();
-if($getCategory) {
+//if($getCategory) {
     echo $getCategory->getName();echo "<br>";
     echo $getCategory->getUrlKey();echo "<br>";
     echo $getCategory->getIsActive();echo "<br>";
     echo "<pre>";print_r($getCategory->getData());
-} else {
-    echo 'Current page is not a category page ';
-}
+//} else {
+//    echo 'Current page is not a category page ';
+//}
 
 
 foreach ($block->getCatIcon() as $value) {
