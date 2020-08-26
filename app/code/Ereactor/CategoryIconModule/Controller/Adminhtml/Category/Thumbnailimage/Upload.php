@@ -15,19 +15,22 @@ class Upload extends \Magento\Backend\App\Action
     protected $categoryRepository;
     protected $layerResolver;
     protected $_storeManager;
+    private $registry;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
         //\Magento\Catalog\Model\Layer\Resolver $layerResolver,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        CategoryRepositoryInterface $categoryRepository
+        //\Magento\Store\Model\StoreManagerInterface $storeManager,
+        CategoryRepositoryInterface $categoryRepository,
+        Registry $registry
     ) {
         $this->imageUploader = $imageUploader;
         $this->categoryRepository = $categoryRepository;
         parent::__construct($context);
        // $this->layerResolver = $layerResolver;
-       $this->_storeManager = $storeManager;
+       //$this->_storeManager = $storeManager;
+       $this->registry = $registry;
     }
     public function execute() {
         error_log("before test");
@@ -75,8 +78,8 @@ class Upload extends \Magento\Backend\App\Action
 */
     public  function getCategory()
     {
-            $category = $this->categoryRepository->get($categoryId, $this->_storeManager->getStore()->getId());
+        $category = $this->registry->registry('current_category');
             error_log("category = ",$category);
-        return $category->getUrl();
+        return $category->getId();
     }
 }
