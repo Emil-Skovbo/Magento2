@@ -19,15 +19,15 @@ class Upload extends \Magento\Backend\App\Action
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
-        \Magento\Catalog\Model\Layer\Resolver $layerResolver,
-        //\Magento\Store\Model\StoreManagerInterface $storeManager,
+        //\Magento\Catalog\Model\Layer\Resolver $layerResolver,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
         CategoryRepositoryInterface $categoryRepository
     ) {
         $this->imageUploader = $imageUploader;
         $this->categoryRepository = $categoryRepository;
         parent::__construct($context);
-        $this->layerResolver = $layerResolver;
-       //$this->_storeManager = $storeManager;
+       // $this->layerResolver = $layerResolver;
+       $this->_storeManager = $storeManager;
     }
     public function execute() {
         error_log("before test");
@@ -48,7 +48,7 @@ class Upload extends \Magento\Backend\App\Action
         //    $user = $path_parts[9];
         //    error_log($user . " id");
             error_log("before id");
-            $id = getCurrentCategory()->getId();
+            $id = getCategory();
             error_log("current id = ", $id);
            $category = $this->categoryRepository->get(38);
            // error_log($urlPath . " saved");
@@ -67,15 +67,16 @@ class Upload extends \Magento\Backend\App\Action
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
     }
 
-    public function getCurrentCategory()
+ /*   public function getCurrentCategory()
     {
         error_log("test1");
         return $this->layerResolver->get()->getCurrentCategory();
     }
-
-/*    public  function getCategory()
+*/
+    public  function getCategory()
     {
             $category = $this->categoryRepository->get($categoryId, $this->_storeManager->getStore()->getId());
+            error_log("category = ",$category);
         return $category->getUrl();
-    }*/
+    }
 }
