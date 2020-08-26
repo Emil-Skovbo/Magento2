@@ -56,9 +56,9 @@ class Upload extends \Magento\Backend\App\Action
         //    $user = $path_parts[9];
         //    error_log($user . " id");
             error_log("before id");
-            $id = $this->getCategory();
-            error_log("current id = ", $id);
-            $category = $this->categoryRepository->get(38);
+            //$id = $this->getCategory();
+            //error_log("current id = ", $id);
+            $category = $this->categoryRepository->get($this->request->getParam('id'));
            // error_log($urlPath . " saved");
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->categoryRepository->save($category);
@@ -84,7 +84,7 @@ class Upload extends \Magento\Backend\App\Action
     public  function getCategory()
     {
         error_log("does this even show");
-        $category = $this->request->getParams('id'); // all params
+        $category = $this->request->getParams('id');
         error_log("category = ",$category);
         return $category;
     }
