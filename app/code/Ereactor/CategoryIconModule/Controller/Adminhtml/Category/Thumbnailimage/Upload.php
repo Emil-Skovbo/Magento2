@@ -18,7 +18,7 @@ class Upload extends \Magento\Backend\App\Action
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
-        \Magento\Catalog\Model\Layer\Resolver $layerResolver,
+        //\Magento\Catalog\Model\Layer\Resolver $layerResolver,
         CategoryRepositoryInterface $catRepo
     ) {
         $this->imageUploader = $imageUploader;
