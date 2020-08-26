@@ -17,17 +17,21 @@ class CurrentCategory extends \Magento\Framework\View\Element\Template
     /* $categoryId as category id */
     public function getCurrentCategory()
     {
+        error_log("test1");
         $category = $this->getData('current_category');
         if ($category === null) {
+            error_log("test2");
             $category = $this->registry->registry('current_category');
             if ($category) {
                 $this->setData('current_category', $category);
+                error_log("test3");
             } else {
                 $category = $this->categoryRepository->get($this->getCurrentStore()->getRootCategoryId());
                 $this->setData('current_category', $category);
+                error_log("test4");
             }
         }
-    
+        error_log("test5");
         return $category;
     }
 }
