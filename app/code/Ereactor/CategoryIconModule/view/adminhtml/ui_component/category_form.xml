@@ -20,10 +20,6 @@
                 </item>
             </argument>
         </field>
-        <field name="select id">
-        <argument name="data" xsi:type="string">
-                </argument>
-    </field>
         <field name="category_id">
         <argument name="data" xsi:type="array">
             <item name="options" xsi:type="object">Magento\Catalog\Ui\Component\Product\Form\Categories\Options</item>
