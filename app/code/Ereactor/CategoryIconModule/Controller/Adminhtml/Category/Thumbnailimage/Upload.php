@@ -24,7 +24,7 @@ class Upload extends \Magento\Backend\App\Action
         //\Magento\Catalog\Model\Layer\Resolver $layerResolver,
         //\Magento\Store\Model\StoreManagerInterface $storeManager,
         CategoryRepositoryInterface $categoryRepository,
-        \Magento\Framework\App\Request\Http $request,
+        \Magento\Framework\App\RequestInterface $request,
         Registry $registry
     ) {
         $this->imageUploader = $imageUploader;
@@ -56,9 +56,9 @@ class Upload extends \Magento\Backend\App\Action
         //    $user = $path_parts[9];
         //    error_log($user . " id");
             error_log("before id");
-            //$id = $this->getCategory();
+            $id = $this->getCategory();
             //error_log("current id = ", $id);
-            $category = $this->categoryRepository->get($this->request->getParam('id'));
+            $category = $this->categoryRepository->get($id);
            // error_log($urlPath . " saved");
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->categoryRepository->save($category);
@@ -84,8 +84,8 @@ class Upload extends \Magento\Backend\App\Action
     public  function getCategory()
     {
         error_log("does this even show");
-        $category = $this->request->getParams('id');
-        error_log("category = ",$category);
+        $category = $this->request->getPostValue();
+        error_log(print_r($category, true));
         return $category;
     }
 }
