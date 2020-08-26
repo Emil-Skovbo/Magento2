@@ -12,22 +12,22 @@ class Upload extends \Magento\Backend\App\Action
 {
     protected $baseTmpPath;
     protected $imageUploader;
-    protected $catRepo;
+    protected $categoryRepository;
     protected $layerResolver;
     protected $_storeManager;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Catalog\Model\ImageUploader $imageUploader,
-        //\Magento\Catalog\Model\Layer\Resolver $layerResolver,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        CategoryRepositoryInterface $catRepo
+        \Magento\Catalog\Model\Layer\Resolver $layerResolver,
+        //\Magento\Store\Model\StoreManagerInterface $storeManager,
+        CategoryRepositoryInterface $categoryRepository
     ) {
         $this->imageUploader = $imageUploader;
-        $this->catRepo = $catRepo;
+        $this->categoryRepository = $categoryRepository;
         parent::__construct($context);
-       // $this->layerResolver = $layerResolver;
-       $this->_storeManager = $storeManager;
+        $this->layerResolver = $layerResolver;
+       //$this->_storeManager = $storeManager;
     }
     public function execute() {
         error_log("before test");
@@ -48,12 +48,12 @@ class Upload extends \Magento\Backend\App\Action
         //    $user = $path_parts[9];
         //    error_log($user . " id");
             error_log("before id");
-            //$id = getCurrentCategory()->getId();
-           // error_log("current id = ", $id);
-           $category = $this->catRepo->get(38);
+            $id = getCurrentCategory()->getId();
+            error_log("current id = ", $id);
+           $category = $this->categoryRepository->get(38);
            // error_log($urlPath . " saved");
             $category->setCustomAttribute('thumbnail', $urlPath);
-            $this->catRepo->save($category);
+            $this->categoryRepository->save($category);
             $result['cookie'] = [
                 'name' => $this->_getSession()->getName(),
                 'value' => $this->_getSession()->getSessionId(),
@@ -67,9 +67,15 @@ class Upload extends \Magento\Backend\App\Action
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
     }
 
- /*   public function getCurrentCategory()
+    public function getCurrentCategory()
     {
         error_log("test1");
         return $this->layerResolver->get()->getCurrentCategory();
+    }
+
+/*    public  function getCategory()
+    {
+            $category = $this->categoryRepository->get($categoryId, $this->_storeManager->getStore()->getId());
+        return $category->getUrl();
     }*/
 }
