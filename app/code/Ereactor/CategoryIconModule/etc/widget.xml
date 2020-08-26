@@ -6,6 +6,10 @@
             <parameter name="id" xsi:type="text" required="true" visible="true" sort_order="10">
                 <label>Category ids</label>
             </parameter>
+            	<parameter name="parentcat"  xsi:type="multiselect"  visible="true" sort_order="3" source_model="Ereactor\CategoryIconModule\Model\Config\Source\Categorylist">
+                <label translate="true">Select Categories (Any three) </label>
+                <description translate="true">Category must have image uploaded</description>
+            </parameter>
         </parameters>
     </widget>
 </widgets>
