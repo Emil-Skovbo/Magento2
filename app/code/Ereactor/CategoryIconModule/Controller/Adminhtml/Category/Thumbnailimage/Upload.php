@@ -24,7 +24,7 @@ class Upload extends \Magento\Backend\App\Action
         $this->imageUploader = $imageUploader;
         $this->catRepo = $catRepo;
         parent::__construct($context);
-        $this->layerResolver = $layerResolver;
+       // $this->layerResolver = $layerResolver;
     }
     public function execute() {
         error_log("before test");
