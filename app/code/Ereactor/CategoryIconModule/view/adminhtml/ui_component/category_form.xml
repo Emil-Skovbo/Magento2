@@ -20,27 +20,15 @@
                 </item>
             </argument>
         </field>
-        <field name="sendemail_store_id" formElement="select">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="source" xsi:type="string">customer</item>
-                        </item>
-                </argument>
-                <settings>
-                    <dataType>number</dataType>
-                    <label translate="true">Send Welcome Email From</label>
-                    <imports>
-                        <link name="value">${ $.provider }:data.customer.store_id</link>
-                    </imports>
-                </settings>
-                <formElements>
-                    <select>
-                       <settings>
-                           <options class="Magento\Store\Model\System\Store"/>
-                       </settings>
-                    </select>
-                </formElements>
-            </field>
+<field name="text_example" formElement="input" sortOrder="10">
+            <settings>
+                <elementTmpl>ui/form/element/text</elementTmpl>
+                <label translate="true">Text Field Example</label>
+                <imports>
+                    <link name="value">${ $.provider }:data.customer.firstname</link>
+                </imports>
+            </settings>
+        </field>
 
      <!--   <field name="category_id">
         <argument name="data" xsi:type="array">
