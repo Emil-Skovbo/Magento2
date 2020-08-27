@@ -110,6 +110,13 @@ public function storeCategoriesArray()
     return $catagoryList;
 }
 
+public function getCategorymodel($id)
+{
+     $_category = $this->_categoryFactory->create();
+        $_category->load($id);
+        return $_category;
+}
+
 
 
 }

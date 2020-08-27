@@ -18,11 +18,13 @@ if($getCategory) {
 
 foreach ($block->getCatIcon() as $value) {
      echo print_r($value);
+     $cat = $this->getCategorymodel($category->getId());
+     $image = $cat->getImageUrl();
      //echo print_r($blocktest->getCurrentCategory());
 ?>
       <div class="row category-list m-auto thin-gutters justify-content-between container">
       <div class="col-3 py-2 px-0 col-lg text-center">
-          <a href="<?php echo $value["url"] ?>" class="d-block icon-text">
+          <a href="<?php echo $image?>" class="d-block icon-text">
               <img alt="" class="img-fluid" src="<?php echo $value["img"] ?>">
               <span><?php echo $value["name"]?></span>
           </a>
