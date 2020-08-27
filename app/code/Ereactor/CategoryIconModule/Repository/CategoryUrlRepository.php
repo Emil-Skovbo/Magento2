@@ -1,7 +1,7 @@
 <?php
 namespace Ereactor\CategoryIconModule\Repository;
 
-use Ereactor\CategoryIconModule\Api\CategoryUrlRepositoryInterface;
+//use Ereactor\CategoryIconModule\Api\CategoryUrlRepositoryInterface;
 use Magento\Catalog\Api\Data\CategoryInterface;
 use Magento\Framework\Api\AttributeInterface;
 use Magento\Framework\UrlInterface;

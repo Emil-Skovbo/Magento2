@@ -7,7 +7,7 @@
 
 namespace Ereactor\CategoryIconModule\Plugin\Category;
 
-use Ereactor\CategoryIconModule\Repository\CategoryUrlRepositoryInterface;
+//use Ereactor\CategoryIconModule\Repository\CategoryUrlRepositoryInterface;
 use Magento\Catalog\Model\Category;
 use Magento\Catalog\Model\Category\DataProvider as CategoryDataProvider;
 
