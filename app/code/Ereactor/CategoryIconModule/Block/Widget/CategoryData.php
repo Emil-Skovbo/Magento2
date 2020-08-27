@@ -5,7 +5,7 @@ use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Catalog\Api\CategoryRepositoryInterface;
 use Magento\Catalog\Model\CategoryRepository;
-
+use Magento\Catalog\Helper\Category;
 
 
 class CategoryData extends Template implements BlockInterface
@@ -21,8 +21,8 @@ class CategoryData extends Template implements BlockInterface
     CategoryRepository $categoryRepository,
     \Magento\Catalog\Model\CategoryFactory $categoryFactory,
     \Magento\Catalog\Model\Layer\Resolver $layerResolver,
-    \Magento\Store\Model\StoreManagerInterface $storeManager
-    
+    \Magento\Store\Model\StoreManagerInterface $storeManager,
+    \Magento\Catalog\Helper\Category $catalogCategory
  )
 {
     $this->validator = $context->getValidator();
@@ -39,6 +39,7 @@ class CategoryData extends Template implements BlockInterface
     $this->layerResolver = $layerResolver;
     $this->_storeManager = $storeManager;
     $this->categoryRepository = $categoryRepository;
+    $this->_categoryHelper = $catalogCategory;
 }
 
 // makes an array based on the input from widget.xml
@@ -60,6 +61,7 @@ class CategoryData extends Template implements BlockInterface
             //gets the url to the category we are linking to
             'url' => $categoryname->getUrl(),
             'testid' => $this->getCurrentCategory()->getId(),
+            'testarray' => $this->toArray(),
             'testurl2' => $this->getData("category_id")
         );
     }
@@ -87,6 +89,25 @@ class CategoryData extends Template implements BlockInterface
     $category           = $this->categoryRepository->get($categoryId);
     $categoryImage      = $category->getImageUrl();
     return $categoryImage;
+}
+
+public function getStoreCategories($sorted = false, $asCollection = false, $toLoad = true)
+{
+    return $this->_categoryHelper->getStoreCategories($sorted , $asCollection, $toLoad);
+}
+
+public function toArray()
+{
+
+    $categories = $this->getStoreCategories(true,false,true);
+
+    $catagoryList = array();
+    foreach ($categories as $category){
+
+        $catagoryList[$category->getEntityId()] = __($category->getName());
+    }
+
+    return $catagoryList;
 }
 
 
