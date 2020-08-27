@@ -2,38 +2,23 @@
 <div class="categories-img mt-n4 mt-lg-0 pr-lg-2 order-2">
 <div class="row category-list m-auto thin-gutters justify-content-between container">
 <?php
-$getCategory = $block->getCurrentCategory();
-if($getCategory) {
-    echo $getCategory->getName();echo "<br>";
-    echo $getCategory->getUrl();echo "<br>";
-    echo $getCategory->getIsActive();echo "<br>";
-    echo $getCategory->getId();echo "<br>";
-    echo $getCategory->getImg();echo "<br>";
-
-   // echo "<pre>";print_r($getCategory->getData());
-} else {
-   echo 'Current page is not a category page ';
-}
+    $categories = $this->getCategoryCollection();
+    $categoryHelper = $this->getCategoryHelper();
 
 
-foreach ($block->getCatIcon() as $value) {
-     echo print_r($value);
-     $cat = $this->getCategorymodel($category->getId());
-     $image = $cat->getImageUrl();
-     //echo print_r($blocktest->getCurrentCategory());
+foreach($categories as $category):
+    $cat = $this->getCategorymodel($category->getId());
+    $image = $cat->getImageUrl();
 ?>
-      <div class="row category-list m-auto thin-gutters justify-content-between container">
-      <div class="col-3 py-2 px-0 col-lg text-center">
-          <a href="<?php echo $image?>" class="d-block icon-text">
-              <img alt="" class="img-fluid" src="<?php echo $value["img"] ?>">
-              <span><?php echo $value["name"]?></span>
-          </a>
-      </div>
-      </div>
-      
-        <?php 
+    <?php if($image != null): ?>
+        <div class="col-md-4">
+            <a class="category_name" href="<?php echo $cat->getUrl(); ?>">
+               <img src="<?php echo $image; ?>" class="img-responsive category_image" alt="<?php echo $cat->getName(); ?>" />
+                <h3><span><?php echo $cat->getName(); ?></span></h3>
+            </a>
+        </div>
+    <?php endif; ?>
+<?php endforeach; ?>
 
-}
-?>
 </div>
 </div>
