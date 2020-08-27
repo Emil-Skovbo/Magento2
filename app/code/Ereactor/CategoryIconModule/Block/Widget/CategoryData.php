@@ -47,14 +47,19 @@ class CategoryData extends Template implements BlockInterface
         $categoryname = $this->_categoryFactory->create()->load($id);
         $categorynametest = $this->_categoryFactory->create()->load($catidtest);
 
-        $_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $load_cat = $_objectManager->create('Magento\Catalog\Model\Category')->load($_subcategory->getId());
-        
+        $category = $this->_objectManager->create('Magento\Catalog\Model\Category')->load($item->getId());
+        $_outputhelper    = $this->helper('Magento\Catalog\Helper\Output');
+        $_imgHtml   = '';
+        if ($_imgUrl = $category->getImageUrl()) {
+            $_imgHtml = '<img src="' . $_imgUrl . '" />';
+            $_imgHtml = $_outputhelper->categoryAttribute($category, $_imgHtml, 'image');
+            /* @escapeNotVerified */ echo $_imgHtml;
+        }
 
         $catinfo[] = array(
             'name' => $categoryname->getName(),
             //gets the url to the uploaded img
-            'img' => $this->_customcatimage->getThumbnailUrl($main_cat->getthumbnail()),
+            'img' => $_imgHtml,
             //$categoryid->getCustomAttribute('thumbnail')->getValue(),
             //gets the url to the category we are linking to
             'url' => $categoryname->getUrl(),
