@@ -69,12 +69,6 @@ class CategoryData extends Template implements BlockInterface
     foreach ($catid as $id) {
 
         $category = $this->_categoryFactory->create();
-        $collection = $category
-                      ->getCollection()
-                      ->addAttributeToSelect('image')
-                      ->addIdFilter($catid);
-
-        $categoryid = $this->catRepo->get($id);
         $categoryname = $this->_categoryFactory->create()->load($id);
         //$categorynametest = $this->_categoryFactory->create()->load($catidtest);
 
