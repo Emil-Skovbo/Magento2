@@ -4,6 +4,7 @@ namespace Ereactor\CategoryIconModule\Block\Widget;
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Catalog\Api\CategoryRepositoryInterface;
+use Magento\Catalog\Model\CategoryRepository;
 
 
 
@@ -14,8 +15,11 @@ class CategoryData extends Template implements BlockInterface
     protected $_categoryFactory;
     private $layerResolver;
     protected $_storeManager;
+    protected $CategoryRepository;
     public function __construct(Template\Context $context, array $data = [], 
-    CategoryRepositoryInterface $catRepo, \Magento\Catalog\Model\CategoryFactory $categoryFactory,
+    CategoryRepositoryInterface $catRepo, 
+    CategoryRepository $categoryRepository,
+    \Magento\Catalog\Model\CategoryFactory $categoryFactory,
     \Magento\Catalog\Model\Layer\Resolver $layerResolver,
     \Magento\Store\Model\StoreManagerInterface $storeManager
     
@@ -34,6 +38,7 @@ class CategoryData extends Template implements BlockInterface
     parent::__construct($context, $data);
     $this->layerResolver = $layerResolver;
     $this->_storeManager = $storeManager;
+    $this->categoryRepository = $categoryRepository;
 }
 
 // makes an array based on the input from widget.xml
