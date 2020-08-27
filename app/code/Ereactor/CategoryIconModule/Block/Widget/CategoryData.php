@@ -13,9 +13,13 @@ class CategoryData extends Template implements BlockInterface
     protected $catRepo;
     protected $_categoryFactory;
     private $layerResolver;
+    protected $_storeManager;
     public function __construct(Template\Context $context, array $data = [], 
     CategoryRepositoryInterface $catRepo, \Magento\Catalog\Model\CategoryFactory $categoryFactory,
-    \Magento\Catalog\Model\Layer\Resolver $layerResolver)
+    \Magento\Catalog\Model\Layer\Resolver $layerResolver,
+    \Magento\Store\Model\StoreManagerInterface $storeManager
+    
+ )
 {
     $this->validator = $context->getValidator();
     $this->resolver = $context->getResolver();
@@ -29,6 +33,7 @@ class CategoryData extends Template implements BlockInterface
     $this->_categoryFactory = $categoryFactory;
     parent::__construct($context, $data);
     $this->layerResolver = $layerResolver;
+    $this->_storeManager = $storeManager;
 }
 
 // makes an array based on the input from widget.xml
@@ -41,10 +46,15 @@ class CategoryData extends Template implements BlockInterface
         $categoryid = $this->catRepo->get($id);
         $categoryname = $this->_categoryFactory->create()->load($id);
         $categorynametest = $this->_categoryFactory->create()->load($catidtest);
+
+        $_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $load_cat = $_objectManager->create('Magento\Catalog\Model\Category')->load($_subcategory->getId());
+        
+
         $catinfo[] = array(
             'name' => $categoryname->getName(),
             //gets the url to the uploaded img
-            'img' => $this->getThumbnailImageUrl(),
+            'img' => $this->_customcatimage->getThumbnailUrl($main_cat->getthumbnail()),
             //$categoryid->getCustomAttribute('thumbnail')->getValue(),
             //gets the url to the category we are linking to
             'url' => $categoryname->getUrl(),
@@ -63,15 +73,11 @@ class CategoryData extends Template implements BlockInterface
         return $this->layerResolver->get()->getCurrentCategory();
     }
 
-    public function getThumbnailImageUrl() 
-    {
-       $url = false;
- 
-       if ($image = $this->getThumbnail()) {
- 
-          $url = Mage::getBaseUrl('media').'catalog/tmp/category/'.$image;
-       }
-       return $url;
+    public function getThumbnailUrl($imageName){
+        $url = $this->_storeManager->getStore()->getBaseUrl(
+                \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
+            ) . 'catalog/tmp/category/' . $imageName;
+        return $url;
     }
 }
 ?>
