@@ -85,16 +85,12 @@ class CategoryData extends Template implements BlockInterface
             //$categoryid->getCustomAttribute('thumbnail')->getValue(),
             //gets the url to the category we are linking to
             'url' => $categoryname->getUrl(),
-            'testid' => $this->getCurrentCategory()->getId(),
-            'testarray' => $this->storeCategoriesArray(),
             'testurl2' => $this->getData("category_id")
         );
     }
     error_log("works");
     return $catinfo;
      }
-
-
 
     public function getCategoryHelper()
     {
@@ -122,8 +118,6 @@ class CategoryData extends Template implements BlockInterface
    public function getCategoryCollection()
     {
         $rootCat = $this->getData('id');
-
-
         $category = $this->_categoryFactory->create();
         $collection = $category
                       ->getCollection()
