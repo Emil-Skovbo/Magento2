@@ -9,7 +9,10 @@
 foreach($categories as $category):
     $cat = $this->getCategorymodel($category->getId());
     $image = $cat->getImageUrl();
+    $newstr = substr_replace($image, "/temp", 10, 0);
+
     echo print_r($image);
+    echo print_r($newstr);
 ?>
     <?php if($image != null): ?>
         <div class="col-md-4">
