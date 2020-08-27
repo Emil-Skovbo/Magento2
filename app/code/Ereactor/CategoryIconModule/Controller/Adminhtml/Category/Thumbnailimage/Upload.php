@@ -23,21 +23,22 @@ class Upload extends \Magento\Backend\App\Action
         $this->_categoryFactory = $categoryFactory;
         parent::__construct($context);
     }
-    public function execute() {
+    public function execute()
+    {
         try {
-            $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
-            $urlPath = $result["url"];
-            /*$categoryTitle = 'Women';
-            $collection = $this->_categoryFactory->create()->getCollection()
-                ->addAttributeToFilter('name',$categoryTitle)->setPageSize(1);
-            if ($collection->getSize()) {
-                $categoryId = $collection->getFirstItem()->getId();
+            $attributeCode = $this->getRequest()->getParam('attribute_code');
+            if (!$attributeCode) {
+                throw new \Exception('attribute_code missing');
             }
-            error_log($categoryId);
-          */
-          //$category = $this->catRepo->get(2);
-          //$category->setCustomAttribute('thumbnail', $urlPath);
-          //  $this->catRepo->save($category);
+
+            $basePath = 'catalog/category/dev98/' . $attributeCode;
+            $baseTmpPath = 'catalog/category/dev98/tmp/' . $attributeCode;
+
+            $this->imageUploader->setBasePath($basePath);
+            $this->imageUploader->setBaseTmpPath($baseTmpPath);
+
+            $result = $this->imageUploader->saveFileToTmpDir($attributeCode);
+
             $result['cookie'] = [
                 'name' => $this->_getSession()->getName(),
                 'value' => $this->_getSession()->getSessionId(),
@@ -48,6 +49,7 @@ class Upload extends \Magento\Backend\App\Action
         } catch (\Exception $e) {
             $result = ['error' => $e->getMessage(), 'errorcode' => $e->getCode()];
         }
+
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
     }
 }
