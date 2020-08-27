@@ -27,7 +27,7 @@ class Upload extends \Magento\Backend\App\Action
         try {
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
             $urlPath = $result["url"];
-            $categoryTitle = 'Women ';
+            $categoryTitle = 'Women';
             $collection = $this->_categoryFactory->create()->getCollection()
                 ->addAttributeToFilter('name',$categoryTitle)->setPageSize(1);
             if ($collection->getSize()) {
