@@ -69,7 +69,7 @@ class CategoryData extends Template implements BlockInterface
  
        if ($image = $this->getThumbnail()) {
  
-          $url = Mage::getBaseUrl('media').'catalog/category/'.$image;
+          $url = Mage::getBaseUrl('media').'catalog/tmp/category/'.$image;
        }
        return $url;
     }
