@@ -61,7 +61,7 @@ class CategoryData extends Template implements BlockInterface
             //gets the url to the category we are linking to
             'url' => $categoryname->getUrl(),
             'testid' => $this->getCurrentCategory()->getId(),
-            'testarray' => $this->toArray(),
+            'testarray' => $this->storeCategoriesArray(),
             'testurl2' => $this->getData("category_id")
         );
     }
@@ -96,7 +96,7 @@ public function getStoreCategories($sorted = false, $asCollection = false, $toLo
     return $this->_categoryHelper->getStoreCategories($sorted , $asCollection, $toLoad);
 }
 
-public function toArray()
+public function storeCategoriesArray()
 {
 
     $categories = $this->getStoreCategories(true,false,true);
