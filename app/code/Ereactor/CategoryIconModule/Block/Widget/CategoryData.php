@@ -83,10 +83,9 @@ class CategoryData extends Template implements BlockInterface
 
     public function getCategoryImage($categoryId)
 {
-    $categoryIdElements = explode('-', $categoryId);
-    $category           = $this->categoryRepository->get(end($categoryIdElements));
-    $categoryImage       = $category->getImageUrl();
-
+    //$categoryIdElements = explode('-', $categoryId);
+    $category           = $this->categoryRepository->get($categoryId);
+    $categoryImage      = $category->getImageUrl();
     return $categoryImage;
 }
 
