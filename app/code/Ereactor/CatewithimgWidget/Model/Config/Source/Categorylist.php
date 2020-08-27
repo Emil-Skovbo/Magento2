@@ -52,7 +52,7 @@ class Categorylist implements ArrayInterface
     public function toArray()
     {
 
-        $categories = $this->getStoreCategories(true,false,true);
+        $categories = $this->getStoreCategories(false,false,true);
 
         $catagoryList = array();
         foreach ($categories as $category){
