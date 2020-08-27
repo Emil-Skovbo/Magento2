@@ -44,7 +44,8 @@ class CategoryData extends Template implements BlockInterface
         $catinfo[] = array(
             'name' => $categoryname->getName(),
             //gets the url to the uploaded img
-            'img' => $categoryid->getCustomAttribute('thumbnail')->getValue(),
+            'img' => getThumbnailImageUrl(),
+            //$categoryid->getCustomAttribute('thumbnail')->getValue(),
             //gets the url to the category we are linking to
             'url' => $categoryname->getUrl(),
             'testid' => $this->getCurrentCategory()->getId(),
@@ -60,6 +61,17 @@ class CategoryData extends Template implements BlockInterface
     {
         error_log("test1");
         return $this->layerResolver->get()->getCurrentCategory();
+    }
+
+    public function getThumbnailImageUrl() 
+    {
+       $url = false;
+ 
+       if ($image = $this->getThumbnail()) {
+ 
+          $url = Mage::getBaseUrl('media').'catalog/category/'.$image;
+       }
+       return $url;
     }
 }
 ?>

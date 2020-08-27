@@ -34,9 +34,10 @@ class Upload extends \Magento\Backend\App\Action
                 $categoryId = $collection->getFirstItem()->getId();
             }
             error_log($categoryId);
-          */$category = $this->catRepo->get(2);
-            $category->setCustomAttribute('thumbnail', $urlPath);
-            $this->catRepo->save($category);
+          */
+          //$category = $this->catRepo->get(2);
+          //$category->setCustomAttribute('thumbnail', $urlPath);
+          //  $this->catRepo->save($category);
             $result['cookie'] = [
                 'name' => $this->_getSession()->getName(),
                 'value' => $this->_getSession()->getSessionId(),
