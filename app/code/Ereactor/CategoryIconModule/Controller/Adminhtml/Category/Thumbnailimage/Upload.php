@@ -27,14 +27,14 @@ class Upload extends \Magento\Backend\App\Action
         try {
             $result = $this->imageUploader->saveFileToTmpDir('thumbnail');
             $urlPath = $result["url"];
-            $categoryTitle = 'Women';
+            /*$categoryTitle = 'Women';
             $collection = $this->_categoryFactory->create()->getCollection()
                 ->addAttributeToFilter('name',$categoryTitle)->setPageSize(1);
             if ($collection->getSize()) {
                 $categoryId = $collection->getFirstItem()->getId();
             }
             error_log($categoryId);
-            $category = $this->catRepo->get($categoryId);
+          */$category = $this->catRepo->get(2);
             $category->setCustomAttribute('thumbnail', $urlPath);
             $this->catRepo->save($category);
             $result['cookie'] = [

@@ -28,9 +28,29 @@
                    <item name="elementTmpl" xsi:type="string">Company_MyModule/form/element/mytext</item>
                 </item>
              </argument>
-        </field>
+        </field><field name="sendemail_store_id" formElement="select">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="source" xsi:type="string">customer</item>
+                        </item>
+                </argument>
+                <settings>
+                    <dataType>number</dataType>
+                    <label translate="true">Send Welcome Email From</label>
+                    <imports>
+                        <link name="value">${ $.provider }:data.customer.store_id</link>
+                    </imports>
+                </settings>
+                <formElements>
+                    <select>
+                       <settings>
+                           <options class="Magento\Store\Model\System\Store"/>
+                       </settings>
+                    </select>
+                </formElements>
+            </field>
 
-        <field name="category_id">
+     <!--   <field name="category_id">
         <argument name="data" xsi:type="array">
             <item name="options" xsi:type="object">Magento\Catalog\Ui\Component\Product\Form\Categories\Options</item>
             <item name="config" xsi:type="array">
@@ -55,6 +75,6 @@
                 </item>
             </item>
         </argument>
-    </field>
+    </field>  -->
     </fieldset>
 </form>
