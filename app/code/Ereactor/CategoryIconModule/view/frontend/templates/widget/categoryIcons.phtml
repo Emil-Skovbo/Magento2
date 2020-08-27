@@ -5,9 +5,10 @@
 $getCategory = $block->getCurrentCategory();
 if($getCategory) {
     echo $getCategory->getName();echo "<br>";
-    echo $getCategory->getUrlKey();echo "<br>";
+    echo $getCategory->getUrl();echo "<br>";
     echo $getCategory->getIsActive();echo "<br>";
     echo $getCategory->getId();echo "<br>";
+    echo $getCategory->getImg();echo "<br>";
 
    // echo "<pre>";print_r($getCategory->getData());
 } else {
