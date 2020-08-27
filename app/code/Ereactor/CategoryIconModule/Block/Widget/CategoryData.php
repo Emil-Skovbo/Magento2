@@ -50,12 +50,12 @@ class CategoryData extends Template implements BlockInterface
     foreach ($catid as $id) {
         $categoryid = $this->catRepo->get($id);
         $categoryname = $this->_categoryFactory->create()->load($id);
-        $categorynametest = $this->_categoryFactory->create()->load($catidtest);
+        //$categorynametest = $this->_categoryFactory->create()->load($catidtest);
 
         $catinfo[] = array(
             'name' => $categoryname->getName(),
             //gets the url to the uploaded img
-            'img' => $this->getCategoryImage($id),
+            'img' => $categoryname->getData("image"),
             //$categoryid->getCustomAttribute('thumbnail')->getValue(),
             //gets the url to the category we are linking to
             'url' => $categoryname->getUrl(),
