@@ -20,15 +20,7 @@
                 </item>
             </argument>
         </field>
-        <field name="my_text">                                                                      
-            <argument name="data" xsi:type="array">            
-                <item name="config" xsi:type="array">
-                    <item name="formElement" xsi:type="string">input</item>         
-                   <!-- Assigning a new template -->
-                   <item name="elementTmpl" xsi:type="string">Company_MyModule/form/element/mytext</item>
-                </item>
-             </argument>
-        </field><field name="sendemail_store_id" formElement="select">
+        <field name="sendemail_store_id" formElement="select">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
                         <item name="source" xsi:type="string">customer</item>
