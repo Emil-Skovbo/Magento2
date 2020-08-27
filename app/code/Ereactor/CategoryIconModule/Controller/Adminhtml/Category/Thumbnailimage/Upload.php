@@ -53,7 +53,7 @@ class Upload extends \Magento\Backend\App\Action
            // error_log("test4");
             $id = $this->getUrl('*/*/*', ['_current' => false, '_use_rewrite' => false]);
             $path_parts= explode('/', $id);
-            $user = $path_parts[7];
+            $user = $path_parts[9];
             error_log($user . " id");
             error_log("before id");
             //$id = $this->getCategory();
