@@ -5,6 +5,10 @@
             <argument name="imageUploader" xsi:type="object">Magento\Catalog\CategoryImageUpload</argument>
         </arguments>
     </type>
+        <type name="Magento\Catalog\Model\Category\DataProvider">
+        <plugin name="dev98_categoryattributes_dataprovider_plugin"
+                type="Ereactor\CategoryIconModule\Plugin\Category\CategoryDataProviderPlugin" />
+    </type>
     <type name="Magento\Cms\Model\Wysiwyg\Images\Storage">
     <arguments>
         <argument name="extensions" xsi:type="array">

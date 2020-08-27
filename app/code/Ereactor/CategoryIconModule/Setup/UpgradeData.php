@@ -22,18 +22,20 @@ class UpgradeData implements UpgradeDataInterface
         $setup->startSetup();
         $this->categorySetupFactory =$this->categorySetupFactory->create(['setup' => $setup]);
         $this->categorySetupFactory->addAttribute(
-            \Magento\Catalog\Model\Category::ENTITY, 'thumbnail', [
+            \Magento\Catalog\Model\Category::ENTITY, 'dev98_icon',        
+             [
                 'type' => 'varchar',
-                'label' => 'Featured Image',
+                'label' => 'dev98 Icon',
                 'input' => 'image',
-                'backend' => 'Magento\Catalog\Model\Category\Attribute\Backend\Image',
+                'sort_order' => 333,
+                'source' => '',
+                'global' => 2,
+                'visible' => true,
                 'required' => false,
-                'sort_order' => 5,
-                'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
-                'group' => 'General Information',
+                'user_defined' => false,
+                'default' => null,
             ]
         );  
         $setup->endSetup();
     }
-
 }

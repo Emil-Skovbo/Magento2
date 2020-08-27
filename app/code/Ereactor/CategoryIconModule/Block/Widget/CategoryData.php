@@ -86,38 +86,5 @@ class CategoryData extends Template implements BlockInterface
     return $catinfo;
      }
 
-    public function getCategoryHelper()
-    {
-        return $this->_categoryHelper;
-    }
-
-    public function getCategorymodel($id)
-    {
-         $_category = $this->_categoryFactory->create();
-            $_category->load($id);
-            return $_category;
-    }
-    /**
-     * Retrieve current store categories
-     *
-     * @param bool|string $sorted
-     * @param bool $asCollection
-     * @param bool $toLoad
-     * @return \Magento\Framework\Data\Tree\Node\Collection|\Magento\Catalog\Model\Resource\Category\Collection|array
-     */
-
-    /**
-     * Retrieve collection of selected categories
-    */
-   public function getCategoryCollection()
-    {
-        $rootCat = $this->getData('id');
-        $category = $this->_categoryFactory->create();
-        $collection = $category
-                      ->getCollection()
-                      ->addAttributeToSelect('image')
-                      ->addIdFilter($rootCat);
-        return $collection;
-    }
 }
 ?>
