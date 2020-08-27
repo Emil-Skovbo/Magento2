@@ -9,6 +9,7 @@
 foreach($categories as $category):
     $cat = $this->getCategorymodel($category->getId());
     $image = $cat->getImageUrl();
+    echo print_r($image);
 ?>
     <?php if($image != null): ?>
         <div class="col-md-4">
