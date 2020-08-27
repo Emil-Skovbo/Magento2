@@ -16,13 +16,26 @@ class CategoryData extends Template implements BlockInterface
     private $layerResolver;
     protected $_storeManager;
     protected $CategoryRepository;
+
+    protected $_categoryHelper;
+    protected $categoryFlatConfig;
+    protected $topMenu;
+    protected $mainTitle;
+    protected $tagLine;
+
+
+
+
     public function __construct(Template\Context $context, array $data = [], 
     CategoryRepositoryInterface $catRepo, 
     CategoryRepository $categoryRepository,
     \Magento\Catalog\Model\CategoryFactory $categoryFactory,
     \Magento\Catalog\Model\Layer\Resolver $layerResolver,
     \Magento\Store\Model\StoreManagerInterface $storeManager,
-    \Magento\Catalog\Helper\Category $catalogCategory
+    \Magento\Catalog\Helper\Category $catalogCategory,
+    \Magento\Catalog\Helper\Category $categoryHelper,
+    \Magento\Catalog\Model\Indexer\Category\Flat\State $categoryFlatState,
+    \Magento\Theme\Block\Html\Topmenu $topMenu
  )
 {
     $this->validator = $context->getValidator();
@@ -40,15 +53,27 @@ class CategoryData extends Template implements BlockInterface
     $this->_storeManager = $storeManager;
     $this->categoryRepository = $categoryRepository;
     $this->_categoryHelper = $catalogCategory;
+
+
+    $this->_categoryHelper = $categoryHelper;
+    $this->categoryFlatConfig = $categoryFlatState;
+    $this->topMenu = $topMenu;
 }
 
 // makes an array based on the input from widget.xml
     public function getCatIcon(){
     $catid = $this->getData("id");
-    $catidtest = $this->getData("category_id");
     $catid = explode(",",$catid);
     $catinfo = [];
+    
     foreach ($catid as $id) {
+
+        $category = $this->_categoryFactory->create();
+        $collection = $category
+                      ->getCollection()
+                      ->addAttributeToSelect('image')
+                      ->addIdFilter($catid);
+
         $categoryid = $this->catRepo->get($id);
         $categoryname = $this->_categoryFactory->create()->load($id);
         //$categorynametest = $this->_categoryFactory->create()->load($catidtest);
@@ -69,55 +94,42 @@ class CategoryData extends Template implements BlockInterface
     return $catinfo;
      }
 
-         /* $categoryId as category id */
-    public function getCurrentCategory()
+
+
+    public function getCategoryHelper()
     {
-        error_log("test1");
-        return $this->layerResolver->get()->getCurrentCategory();
+        return $this->_categoryHelper;
     }
 
-    public function getThumbnailUrl($imageName){
-        $url = $this->_storeManager->getStore()->getBaseUrl(
-                \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
-            ) . 'catalog/tmp/category/' . $imageName;
-        return $url;
+    public function getCategorymodel($id)
+    {
+         $_category = $this->_categoryFactory->create();
+            $_category->load($id);
+            return $_category;
     }
+    /**
+     * Retrieve current store categories
+     *
+     * @param bool|string $sorted
+     * @param bool $asCollection
+     * @param bool $toLoad
+     * @return \Magento\Framework\Data\Tree\Node\Collection|\Magento\Catalog\Model\Resource\Category\Collection|array
+     */
 
-    public function getCategoryImage($categoryId)
-{
-    //$categoryIdElements = explode('-', $categoryId);
-    $category           = $this->categoryRepository->get($categoryId);
-    $categoryImage      = $category->getImageUrl();
-    return $categoryImage;
-}
+    /**
+     * Retrieve collection of selected categories
+    */
+   public function getCategoryCollection()
+    {
+        $rootCat = $this->getData('id');
 
-public function getStoreCategories($sorted = false, $asCollection = false, $toLoad = true)
-{
-    return $this->_categoryHelper->getStoreCategories($sorted , $asCollection, $toLoad);
-}
 
-public function storeCategoriesArray()
-{
-
-    $categories = $this->getStoreCategories(true,false,true);
-
-    $catagoryList = array();
-    foreach ($categories as $category){
-
-        $catagoryList[$category->getEntityId()] = __($category->getName());
+        $category = $this->_categoryFactory->create();
+        $collection = $category
+                      ->getCollection()
+                      ->addAttributeToSelect('image')
+                      ->addIdFilter($rootCat);
+        return $collection;
     }
-
-    return $catagoryList;
-}
-
-public function getCategorymodel($id)
-{
-     $_category = $this->_categoryFactory->create();
-        $_category->load($id);
-        return $_category;
-}
-
-
-
 }
 ?>
