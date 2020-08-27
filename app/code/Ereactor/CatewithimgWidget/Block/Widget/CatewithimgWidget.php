@@ -1,5 +1,5 @@
 <?php
-namespace ProgrammingAtKstark\CatewithimgWidget\Block\Widget;
+namespace Ereactor\CatewithimgWidget\Block\Widget;
 
 class CatewithimgWidget extends \Magento\Framework\View\Element\Template implements \Magento\Widget\Block\BlockInterface
 {

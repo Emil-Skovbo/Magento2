@@ -1,5 +1,5 @@
 <?php
-namespace ProgrammingAtKstark\CatewithimgWidget\Model\Config\Source;
+namespace Ereactor\CatewithimgWidget\Model\Config\Source;
 
 use Magento\Framework\Option\ArrayInterface;
 use Magento\Catalog\Helper\Category;
