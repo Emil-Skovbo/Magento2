@@ -51,12 +51,12 @@ class Upload extends \Magento\Backend\App\Action
            // error_log("test3");
             //error_log(print_r($id, true));
            // error_log("test4");
-        //   $id = $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => false]);
-        //    $path_parts= explode('/', $id);
-        //    $user = $path_parts[9];
-        //    error_log($user . " id");
+            $id = $this->getUrl('*/*/*', ['_current' => false, '_use_rewrite' => false]);
+            $path_parts= explode('/', $id);
+            $user = $path_parts[9];
+            error_log($user . " id");
             error_log("before id");
-            $id = $this->getCategory();
+            //$id = $this->getCategory();
             //error_log("current id = ", $id);
             $category = $this->categoryRepository->get(38);
            // error_log($urlPath . " saved");
