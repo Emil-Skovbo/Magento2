@@ -47,19 +47,10 @@ class CategoryData extends Template implements BlockInterface
         $categoryname = $this->_categoryFactory->create()->load($id);
         $categorynametest = $this->_categoryFactory->create()->load($catidtest);
 
-        $category = $this->_objectManager->create('Magento\Catalog\Model\Category')->load($item->getId());
-        $_outputhelper    = $this->helper('Magento\Catalog\Helper\Output');
-        $_imgHtml   = '';
-        if ($_imgUrl = $category->getImageUrl()) {
-            $_imgHtml = '<img src="' . $_imgUrl . '" />';
-            $_imgHtml = $_outputhelper->categoryAttribute($category, $_imgHtml, 'image');
-            /* @escapeNotVerified */ echo $_imgHtml;
-        }
-
         $catinfo[] = array(
             'name' => $categoryname->getName(),
             //gets the url to the uploaded img
-            'img' => $_imgHtml,
+            'img' => $this->getCategoryImage($id),
             //$categoryid->getCustomAttribute('thumbnail')->getValue(),
             //gets the url to the category we are linking to
             'url' => $categoryname->getUrl(),
@@ -84,5 +75,15 @@ class CategoryData extends Template implements BlockInterface
             ) . 'catalog/tmp/category/' . $imageName;
         return $url;
     }
+
+    public function getCategoryImage($categoryId)
+{
+    $categoryIdElements = explode('-', $categoryId);
+    $category           = $this->categoryRepository->get(end($categoryIdElements));
+    $categoryImage       = $category->getImageUrl();
+
+    return $categoryImage;
+}
+
 }
 ?>
