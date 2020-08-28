@@ -38,7 +38,7 @@ class CategoryUrlRepository implements CategoryUrlRepositoryInterface
     public function getCategoryIconUrl(CategoryInterface $category, $attributeCode)
     {
         $url = '';
-
+        error_log("test0");
         $imageAttribute = $category->getCustomAttribute($attributeCode);
         error_log("test1");
         if (!$imageAttribute instanceof AttributeInterface) {
