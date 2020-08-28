@@ -6,4 +6,6 @@ namespace Ereactor\CategoryIconModule\Api;
 {
     public function setVariable($name, $var);
     public function getHtml($template);
+
+    public function getCategoryIconUrl($category, $attributeCode);
 }
