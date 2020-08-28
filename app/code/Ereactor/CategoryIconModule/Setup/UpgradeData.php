@@ -22,7 +22,7 @@ class UpgradeData implements UpgradeDataInterface
         $setup->startSetup();
         $this->categorySetupFactory =$this->categorySetupFactory->create(['setup' => $setup]);
         $this->categorySetupFactory->addAttribute(
-            CategoryModel::ENTITY, 'dev98_icon',        
+            \Magento\Catalog\Model\Category::ENTITY, 'dev98_icon',        
              [
                 'type' => 'varchar',
                 'label' => 'dev98 Icon',

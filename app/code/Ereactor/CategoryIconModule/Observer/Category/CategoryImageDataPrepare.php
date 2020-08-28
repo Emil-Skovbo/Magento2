@@ -53,7 +53,7 @@ class CategoryImageDataPrepare implements ObserverInterface
         if (isset($data['is_uploaded'])) {
             $category->setData('is_uploaded', $data['is_uploaded']);
         }
-
+        error_log(" construct works 20");
         return $this;
     }
 }
