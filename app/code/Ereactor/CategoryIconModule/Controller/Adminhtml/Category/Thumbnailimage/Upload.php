@@ -28,6 +28,7 @@ class Upload extends \Magento\Backend\App\Action
     public function execute()
     {
         try {
+            error_log(" execute test");
             $attributeCode = $this->getRequest()->getParam('attribute_code');
             if (!$attributeCode) {
                 throw new \Exception('attribute_code missing');
