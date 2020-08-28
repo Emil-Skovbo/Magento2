@@ -8,7 +8,6 @@ use Magento\Catalog\Api\CategoryRepositoryInterface;
  */
 class Upload extends \Magento\Backend\App\Action
 {
-    protected $baseTmpPath;
     protected $imageUploader;
     protected $catRepo;
     
