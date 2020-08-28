@@ -18,6 +18,7 @@ class Upload extends \Magento\Backend\App\Action
         \Magento\Catalog\Model\ImageUploader $imageUploader,
         CategoryRepositoryInterface $catRepo
     ) {
+        error_log(" construct");
         $this->imageUploader = $imageUploader;
         $this->catRepo = $catRepo;
         $this->_categoryFactory = $categoryFactory;
