@@ -4,4 +4,5 @@
         <plugin name="dev98_categoryattributes_dataprovider_plugin"
                 type="Ereactor\CategoryIconModule\Plugin\Category\CategoryDataProviderPlugin" />
     </type>
+    <preference for="Ereactor\CategoryIconModule\Api\CategoryUrlRepositoryInterface" type="Ereactor\CategoryIconModule\Model\CategoryUrlRepository" />
 </config>
