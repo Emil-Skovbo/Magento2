@@ -1,5 +1,5 @@
 <?php
-namespace Ereactor\CategoryIconModule\Repository;
+namespace Ereactor\CategoryIconModule\Model;
 
 use Ereactor\CategoryIconModule\Api\CategoryUrlRepositoryInterface;
 use Magento\Catalog\Api\Data\CategoryInterface;
@@ -57,7 +57,5 @@ class CategoryUrlRepository implements CategoryUrlRepositoryInterface
 
         return $url;
     }
-
-    
 
 }
