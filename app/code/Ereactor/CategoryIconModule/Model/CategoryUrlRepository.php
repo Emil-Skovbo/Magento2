@@ -26,6 +26,7 @@ class CategoryUrlRepository implements CategoryUrlRepositoryInterface
     public function __construct(StoreManagerInterface $storeManager)
     {
         $this->storeManager = $storeManager;
+        error_log(" construct1");
     }
 
     /**

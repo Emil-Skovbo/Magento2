@@ -28,6 +28,7 @@ class CategoryImageDataPrepare implements ObserverInterface
     public function execute(Observer $observer)
     {
         /** @var \Magento\Catalog\Model\Category $category */
+        error_log(" CategoryImageDataPrepare");
         $category = $observer->getCategory();
         $data = $observer->getRequest()->getParams();
         foreach ($this->imageAttributes as $attributeName) {

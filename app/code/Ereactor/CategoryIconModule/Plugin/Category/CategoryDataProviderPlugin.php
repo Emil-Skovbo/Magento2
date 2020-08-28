@@ -31,6 +31,7 @@ class CategoryDataProviderPlugin
     public function __construct(CategoryUrlRepositoryInterface $categoryUrlRepository)
     {
         $this->categoryUrlRepository = $categoryUrlRepository;
+        error_log(" Category3");
     }
 
     /**
