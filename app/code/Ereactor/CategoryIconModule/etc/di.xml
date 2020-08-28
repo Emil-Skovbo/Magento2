@@ -1,40 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Ereactor\CategoryIconModule\Controller\Adminhtml\Category\Thumbnailimage\Upload">
-        <arguments>
-            <argument name="imageUploader" xsi:type="object">Magento\Catalog\CategoryImageUpload</argument>
-        </arguments>
-    </type>
-    <!--    <type name="Magento\Catalog\Model\Category\DataProvider">
+    <type name="Magento\Catalog\Model\Category\DataProvider">
         <plugin name="dev98_categoryattributes_dataprovider_plugin"
-                type="Ereactor\CategoryIconModule\Plugin\Category\CategoryDataProviderPlugin" />
-    </type> -->
-    <type name="Magento\Cms\Model\Wysiwyg\Images\Storage">
-    <arguments>
-        <argument name="extensions" xsi:type="array">
-            <item name="allowed" xsi:type="array">
-                <item name="svg" xsi:type="string">text/html</item>
-            </item>
-            <item name="image_allowed" xsi:type="array">
-                <item name="svg" xsi:type="string">text/html</item>
-            </item>
-            <item name="media_allowed" xsi:type="array">
-                <item name="svg" xsi:type="string">text/html</item>
-            </item>
-        </argument>
-    </arguments>
-</type>
-    <virtualType name="Magento\Catalog\CategoryImageUpload" type="Magento\Catalog\Model\ImageUploader">
-        <arguments>
-            <argument name="baseTmpPath" xsi:type="string">catalog/tmp/category</argument>
-            <argument name="basePath" xsi:type="string">catalog/category</argument>
-            <argument name="allowedExtensions" xsi:type="array">
-                <item name="jpg" xsi:type="string">jpg</item>
-                <item name="jpeg" xsi:type="string">jpeg</item>
-                <item name="gif" xsi:type="string">gif</item>
-                <item name="png" xsi:type="string">png</item>
-            </argument>
-        </arguments>
-    </virtualType>
-    
+                type="Dev98\CategoryAttributes\Plugin\Category\CategoryDataProviderPlugin" />
+    </type>
 </config>
