@@ -31,8 +31,8 @@ class Upload extends \Magento\Backend\App\Action
                 throw new \Exception('attribute_code missing');
             }
 
-            $basePath = 'catalog/category/dev98/' . $attributeCode;
-            $baseTmpPath = 'catalog/category/dev98/tmp/' . $attributeCode;
+            $basePath = 'catalog/category/' . $attributeCode;
+            $baseTmpPath = 'catalog/category/tmp/' . $attributeCode;
 
             $this->imageUploader->setBasePath($basePath);
             $this->imageUploader->setBaseTmpPath($baseTmpPath);
