@@ -22,7 +22,7 @@
                     <item name="required" xsi:type="boolean">false</item>
                     <item name="uploaderConfig" xsi:type="array">
                         <item name="url" xsi:type="url"
-                              path="dev98_category_attributes/category/categoryImageUpload/attribute_code/dev98_icon"/>
+                              path="categoryiconmodule/category_thumbnailimage/upload"/>
                     </item>
                     <item name="scopeLabel" xsi:type="string">m2play</item>
                 </item>
