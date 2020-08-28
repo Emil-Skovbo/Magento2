@@ -4,5 +4,5 @@ namespace Ereactor\CategoryIconModule\Api;
 
     interface CategoryUrlRepositoryInterface
 {
-    public function getCategoryIconUrl($category, $attributeCode);
+    public function getCategoryIconUrl(\Magento\Catalog\Api\Data\CategoryInterface $category, $attributeCode);
 }
