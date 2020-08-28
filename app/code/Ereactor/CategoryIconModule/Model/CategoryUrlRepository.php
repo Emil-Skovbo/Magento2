@@ -55,7 +55,7 @@ class CategoryUrlRepository implements CategoryUrlRepositoryInterface
         $store = $this->storeManager->getStore();
         $baseUrl = $store->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
         $url = $baseUrl . 'catalog/category/dev98/' . $attributeCode . '/' . $imageName;
-
+        error_log(" construct works 1");
         return $url;
     }
 

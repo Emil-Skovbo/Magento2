@@ -80,7 +80,7 @@ class CategoryDataProviderPlugin
             ];
             $data[$category->getId()][$attributeCode] = $seoImageData;
         }
-
+        error_log(" construct works 2");
         return $data;
     }
 }
