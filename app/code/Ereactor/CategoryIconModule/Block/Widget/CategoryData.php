@@ -82,7 +82,7 @@ class CategoryData extends Template implements BlockInterface
             //gets the url to the category we are linking to
             'url' => $categoryname->getUrl(),
             'testurl2' => $this->getData("category_id"),
-            'devtest' => $url->getCategoryIconUrl($categoryname,"thumbnail")
+            'devtest' => $url->getCategoryIconUrl($categoryname,"dev98_icon")
         );
     }
     error_log("works");

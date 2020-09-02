@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="imageUploader" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">tmp path</argument>
+            <argument name="basePath" xsi:type="string">base path</argument>
+        </arguments>
+    </virtualType>
     <type name="Magento\Catalog\Model\Category\DataProvider">
         <plugin name="dev98_categoryattributes_dataprovider_plugin"
                 type="Ereactor\CategoryIconModule\Plugin\Category\CategoryDataProviderPlugin" />

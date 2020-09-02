@@ -19,8 +19,10 @@ class UpgradeData implements UpgradeDataInterface
     }
     public function upgrade(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
-        $this->eavSetup->addAttribute(
-            CategoryModel::ENTITY,
+        $setup->startSetup();
+        $this->categorySetupFactory =$this->categorySetupFactory->create(['setup' => $setup]);
+        $this->categorySetupFactory->addAttribute(
+            \Magento\Catalog\Model\Category::ENTITY,
             'dev98_icon',
             [
                 'type' => 'varchar',
@@ -35,5 +37,6 @@ class UpgradeData implements UpgradeDataInterface
                 'default' => null,
             ]
         );
+        $setup->endSetup();
     }
 }

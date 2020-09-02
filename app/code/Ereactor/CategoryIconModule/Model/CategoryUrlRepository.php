@@ -41,16 +41,14 @@ class CategoryUrlRepository implements CategoryUrlRepositoryInterface
         error_log("test0");
         $imageAttribute = $category->getCustomAttribute($attributeCode);
         error_log("test1");
-
-
         error_log(print_r($imageAttribute, true));
         if (!$imageAttribute instanceof AttributeInterface) {
             error_log("test2");
             return $url;
-
         }
         error_log("test3");
         $imageName = $imageAttribute->getValue();
+
 
         if (!$imageName) {
             return $url;
