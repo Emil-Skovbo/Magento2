@@ -41,10 +41,13 @@ class CategoryUrlRepository implements CategoryUrlRepositoryInterface
         error_log("test0");
         $imageAttribute = $category->getCustomAttribute($attributeCode);
         error_log("test1");
+
+
+        error_log(print_r($imageAttribute, true));
         if (!$imageAttribute instanceof AttributeInterface) {
             error_log("test2");
             return $url;
-            
+
         }
         error_log("test3");
         $imageName = $imageAttribute->getValue();
@@ -59,7 +62,7 @@ class CategoryUrlRepository implements CategoryUrlRepositoryInterface
         $store = $this->storeManager->getStore();
         error_log("test6");
         $baseUrl = $store->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
-        $url = $baseUrl . 'catalog/category/dev98/' . $attributeCode . '/' . $imageName;
+        $url = $baseUrl . 'catalog/category/tmp/' . $attributeCode . '/' . $imageName;
         error_log(" construct works 1");
         return $url;
     }

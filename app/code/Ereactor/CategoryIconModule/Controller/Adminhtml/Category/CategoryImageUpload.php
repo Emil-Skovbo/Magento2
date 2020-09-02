@@ -1,48 +1,65 @@
 <?php
-namespace Ereactor\CategoryIconModule\Controller\Adminhtml\Category\Thumbnailimage;
-use Magento\Framework\Controller\ResultFactory;
-use Magento\Catalog\Api\CategoryRepositoryInterface;
+namespace Ereactor\CategoryIconModule\Controller\Adminhtml\Category;
 
-/**
- * Class Upload
- */
-class Upload extends \Magento\Backend\App\Action
-{   
-    protected $basePath;
-    protected $baseTmpPath;
+use Magento\Framework\Controller\ResultFactory;
+
+class CategoryImageUpload extends \Magento\Backend\App\Action
+{
+    /**
+     * Image uploader
+     *
+     * @var \Magento\Catalog\Model\ImageUploader
+     */
     protected $imageUploader;
-    protected $catRepo;
-    
+
+    /**
+     * Upload constructor.
+     *
+     * @param \Magento\Backend\App\Action\Context $context
+     * @param \Magento\Catalog\Model\ImageUploader $imageUploader
+     */
     public function __construct(
-        \Magento\Catalog\Model\CategoryFactory $categoryFactory,
         \Magento\Backend\App\Action\Context $context,
-        \Magento\Catalog\Model\ImageUploader $imageUploader,
-        CategoryRepositoryInterface $catRepo
-    ) {
-        error_log(" construct");
-        $this->imageUploader = $imageUploader;
-        $this->catRepo = $catRepo;
-        $this->_categoryFactory = $categoryFactory;
+        \Magento\Catalog\Model\ImageUploader $imageUploader
+    )
+    {
+
         parent::__construct($context);
+        $this->imageUploader = $imageUploader;
     }
+
+    /**
+     * Check admin permissions for this controller
+     *
+     * @return boolean
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Magento_Catalog::categories');
+    }
+
+    /**
+     * Upload file controller action
+     *
+     * @return \Magento\Framework\Controller\ResultInterface
+     */
     public function execute()
     {
         try {
-            error_log(" execute test");
+            error_log("attributcode before");
             $attributeCode = $this->getRequest()->getParam('attribute_code');
             if (!$attributeCode) {
                 throw new \Exception('attribute_code missing');
             }
-
-            $basePath = 'catalog/category/dev98/' . $attributeCode;
-            $baseTmpPath = 'catalog/category/dev98/tmp/' . $attributeCode;
+            $basePath = 'catalog/category/' . $attributeCode;
+            $baseTmpPath = 'catalog/category/tmp/' . $attributeCode;
             error_log($basePath . " base");
             error_log($baseTmpPath . " tmp");
             $this->imageUploader->setBasePath($basePath);
             $this->imageUploader->setBaseTmpPath($baseTmpPath);
-
+            error_log("saving..");
             $result = $this->imageUploader->saveFileToTmpDir($attributeCode);
-
+            error_log("saved to tmp");
             $result['cookie'] = [
                 'name' => $this->_getSession()->getName(),
                 'value' => $this->_getSession()->getSessionId(),
@@ -57,3 +74,4 @@ class Upload extends \Magento\Backend\App\Action
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
     }
 }
+

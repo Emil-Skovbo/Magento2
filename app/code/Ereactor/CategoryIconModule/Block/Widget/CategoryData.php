@@ -6,6 +6,7 @@ use Magento\Widget\Block\BlockInterface;
 use Magento\Catalog\Api\CategoryRepositoryInterface;
 use Magento\Catalog\Model\CategoryRepository;
 use Magento\Catalog\Helper\Category;
+use Ereactor\CategoryIconModule\Model\CategoryUrlRepository;
 
 
 class CategoryData extends Template implements BlockInterface
@@ -26,8 +27,8 @@ class CategoryData extends Template implements BlockInterface
 
 
 
-    public function __construct(Template\Context $context, array $data = [], 
-    CategoryRepositoryInterface $catRepo, 
+    public function __construct(Template\Context $context, array $data = [],
+    CategoryRepositoryInterface $catRepo,
     CategoryRepository $categoryRepository,
     \Magento\Catalog\Model\CategoryFactory $categoryFactory,
     \Magento\Catalog\Model\Layer\Resolver $layerResolver,
@@ -42,7 +43,7 @@ class CategoryData extends Template implements BlockInterface
     $this->resolver = $context->getResolver();
     $this->_filesystem = $context->getFilesystem();
     $this->templateEnginePool = $context->getEnginePool();
-    $this->_storeManager = $context->getStoreManager();
+    //$this->_storeManager = $context->getStoreManager();
     $this->_appState = $context->getAppState();
     $this->templateContext = $this;
     $this->pageConfig = $context->getPageConfig();
@@ -54,7 +55,6 @@ class CategoryData extends Template implements BlockInterface
     $this->categoryRepository = $categoryRepository;
     $this->_categoryHelper = $catalogCategory;
 
-
     $this->_categoryHelper = $categoryHelper;
     $this->categoryFlatConfig = $categoryFlatState;
     $this->topMenu = $topMenu;
@@ -65,13 +65,15 @@ class CategoryData extends Template implements BlockInterface
     $catid = $this->getData("id");
     $catid = explode(",",$catid);
     $catinfo = [];
-    
-    foreach ($catid as $id) {
 
+    foreach ($catid as $id) {
         $category = $this->_categoryFactory->create();
+        $categoryid = $this->catRepo->get($id);
         $categoryname = $this->_categoryFactory->create()->load($id);
         //$categorynametest = $this->_categoryFactory->create()->load($catidtest);
-
+        $url = new CategoryUrlRepository($this->_storeManager);
+        $res = $categoryname->getCustomAttributes();
+        error_log(print_r($res, true));
         $catinfo[] = array(
             'name' => $categoryname->getName(),
             //gets the url to the uploaded img
@@ -79,7 +81,8 @@ class CategoryData extends Template implements BlockInterface
             //$categoryid->getCustomAttribute('thumbnail')->getValue(),
             //gets the url to the category we are linking to
             'url' => $categoryname->getUrl(),
-            'testurl2' => $this->getData("category_id")
+            'testurl2' => $this->getData("category_id"),
+            'devtest' => $url->getCategoryIconUrl($categoryname,"thumbnail")
         );
     }
     error_log("works");

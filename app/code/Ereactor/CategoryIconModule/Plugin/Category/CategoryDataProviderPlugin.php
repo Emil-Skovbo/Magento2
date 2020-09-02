@@ -34,31 +34,6 @@ class CategoryDataProviderPlugin
         error_log(" Category3");
     }
 
-    /**
- * Get data
- *
- * @return array
- */
-public function getData()
-{
-    if (isset($this->loadedData)) {
-        return $this->loadedData;
-    }
-    $category = $this->getCurrentCategory();
-    if ($category) {
-        $categoryData = $category->getData();
-        $categoryData = $this->addUseDefaultSettings($category, $categoryData);
-        $categoryData = $this->addUseConfigSettings($categoryData);
-        $categoryData = $this->filterFields($categoryData);
-        if (isset($categoryData['image'])) {
-            unset($categoryData['image']);
-            $categoryData['image'][0]['name'] = $category->getData('image');
-            $categoryData['image'][0]['url'] = $category->getImageUrl();
-        }
-        $this->loadedData[$category->getId()] = $categoryData;
-    }
-    return $this->loadedData;
-}
 
     /**
      * AfterGetData

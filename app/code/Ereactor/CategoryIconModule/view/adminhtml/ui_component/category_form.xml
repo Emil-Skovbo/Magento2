@@ -5,7 +5,7 @@
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="collapsible" xsi:type="boolean">true</item>
-                <item name="label" xsi:type="string" translate="true">dev98 custom attributes</item>
+                <item name="label" xsi:type="string" translate="true">E-reactor</item>
                 <item name="sortOrder" xsi:type="number">100</item>
             </item>
         </argument>
@@ -14,7 +14,7 @@
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">string</item>
                     <item name="source" xsi:type="string">category</item>
-                    <item name="label" xsi:type="string" translate="true">dev98 icon</item>
+                    <item name="label" xsi:type="string" translate="true">CategoryIconUploader</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="formElement" xsi:type="string">fileUploader</item>
                     <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
@@ -22,9 +22,9 @@
                     <item name="required" xsi:type="boolean">false</item>
                     <item name="uploaderConfig" xsi:type="array">
                         <item name="url" xsi:type="url"
-                              path="categoryiconmodule/category_thumbnailimage/upload"/>
+                              path="categoryiconmodule/category/categoryimageupload/attribute_code/dev98_icon"/>
                     </item>
-                    <item name="scopeLabel" xsi:type="string">m2play</item>
+                    <item name="scopeLabel" xsi:type="string">Widget</item>
                 </item>
             </argument>
         </field>
