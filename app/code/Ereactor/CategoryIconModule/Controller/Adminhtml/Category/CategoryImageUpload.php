@@ -82,6 +82,7 @@ class CategoryImageUpload extends \Magento\Backend\App\Action
         }
         error_log("upload 5");
         return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
+
     }
 }
 

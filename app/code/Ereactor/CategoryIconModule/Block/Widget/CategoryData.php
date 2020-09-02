@@ -86,6 +86,7 @@ class CategoryData extends Template implements BlockInterface
         );
     }
     error_log("works");
+
     return $catinfo;
      }
 
