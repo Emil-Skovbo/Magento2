@@ -15,7 +15,7 @@ class CategoryImageDataPrepare implements ObserverInterface
      * @var []
      */
     protected $imageAttributes = [
-        'dev98_icon',
+        'thumbnail',
     ];
 
     /**
@@ -28,7 +28,6 @@ class CategoryImageDataPrepare implements ObserverInterface
     public function execute(Observer $observer)
     {
         /** @var \Magento\Catalog\Model\Category $category */
-        error_log(" CategoryImageDataPrepare");
         $category = $observer->getCategory();
         $data = $observer->getRequest()->getParams();
         foreach ($this->imageAttributes as $attributeName) {
@@ -53,7 +52,6 @@ class CategoryImageDataPrepare implements ObserverInterface
         if (isset($data['is_uploaded'])) {
             $category->setData('is_uploaded', $data['is_uploaded']);
         }
-        error_log(" construct works 20");
         return $this;
     }
 }

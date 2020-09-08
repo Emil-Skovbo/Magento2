@@ -31,9 +31,7 @@ class CategoryDataProviderPlugin
     public function __construct(CategoryUrlRepositoryInterface $categoryUrlRepository)
     {
         $this->categoryUrlRepository = $categoryUrlRepository;
-        error_log(" Category3");
     }
-
 
     /**
      * AfterGetData
@@ -53,35 +51,42 @@ class CategoryDataProviderPlugin
         /** @var Category $category */
         $category = $subject->getCurrentCategory();
         if (!$category) {
+            error_log("fail category");
             return $data;
         }
 
         $attributeCodes = [
-            'dev98_icon',
+            'thumbnail',
         ];
 
         foreach ($attributeCodes as $attributeCode) {
             $image = $category->getData($attributeCode);
             if (!$image) {
+                error_log("continue");
                 continue;
             }
-
+            error_log("after con");
             $imageName = $image;
             if (!is_string($image)) {
+                error_log("is not string");
                 if (is_array($image)) {
+                    error_log("is array");
                     $imageName = $image[0]['name'];
                 }
             }
             $categoryImageUrl = $this->categoryUrlRepository->getCategoryIconUrl($category, $attributeCode);
+            error_log("url = " . $categoryImageUrl);
             $seoImageData = [
                 0 => [
                     'name' => $imageName,
                     'url' => $categoryImageUrl,
                 ],
             ];
+            error_log(print_r($seoImageData));
             $data[$category->getId()][$attributeCode] = $seoImageData;
         }
-        error_log(" construct works 2");
+
         return $data;
+
     }
 }

@@ -9,7 +9,7 @@
                 <item name="sortOrder" xsi:type="number">100</item>
             </item>
         </argument>
-        <field name="dev98_icon" formElement="imageUploader">
+        <field name="thumbnail" formElement="imageUploader">
             <settings>
                 <notice translate="true">Some notice.</notice>
                 <label translate="true">Category Image Uploader </label>
@@ -21,7 +21,7 @@
                         <allowedExtensions>jpg jpeg gif png</allowedExtensions>
                         <maxFileSize>2097152</maxFileSize>
                         <uploaderConfig>
-                            <param xsi:type="string" name="url">categoryiconmodule/category/categoryImageUpload/attribute_code/dev98_icon</param>
+                            <param xsi:type="string" name="url">categoryiconmodule/category/categoryImageUpload/attribute_code/thumbnail</param>
                         </uploaderConfig>
                     </settings>
                 </imageUploader>

@@ -26,7 +26,6 @@ class CategoryUrlRepository implements CategoryUrlRepositoryInterface
     public function __construct(StoreManagerInterface $storeManager)
     {
         $this->storeManager = $storeManager;
-        error_log(" construct1");
     }
 
     /**
@@ -38,30 +37,22 @@ class CategoryUrlRepository implements CategoryUrlRepositoryInterface
     public function getCategoryIconUrl(CategoryInterface $category, $attributeCode)
     {
         $url = '';
-        error_log("test0");
         $imageAttribute = $category->getCustomAttribute($attributeCode);
-        error_log("test1");
-        error_log(print_r($imageAttribute, true));
         if (!$imageAttribute instanceof AttributeInterface) {
-            error_log("test2");
+            error_log("atri error");
             return $url;
         }
-        error_log("test3");
         $imageName = $imageAttribute->getValue();
-
-
         if (!$imageName) {
+            error_log("img name error");
             return $url;
-            error_log("test4");
         }
 
         /** @var StoreInterface $store */
-        error_log("test5");
         $store = $this->storeManager->getStore();
-        error_log("test6");
         $baseUrl = $store->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
         $url = $baseUrl . 'catalog/category/tmp/' . $attributeCode . '/' . $imageName;
-        error_log(" construct works 1");
+        error_log("img name error");
         return $url;
     }
 

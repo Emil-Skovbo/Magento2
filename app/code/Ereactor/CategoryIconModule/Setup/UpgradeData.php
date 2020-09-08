@@ -1,29 +1,28 @@
 <?php
 namespace Ereactor\CategoryIconModule\Setup;
 
-use Magento\Framework\Module\Setup\Migration;
 use Magento\Framework\Setup\UpgradeDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Eav\Setup\EavSetupFactory;
 
+
 class UpgradeData implements UpgradeDataInterface
 {
-    public $categorySetupFactory;
+    public $eavSetupFactory;
 
-
-    public function __construct(EavSetupFactory $categorySetupFactory)
+    public function __construct(EavSetupFactory $eavSetupFactory)
     {
-        $this->categorySetupFactory = $categorySetupFactory;
+        $this->eavSetupFactory = $eavSetupFactory;
 
     }
     public function upgrade(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
         $setup->startSetup();
-        $this->categorySetupFactory =$this->categorySetupFactory->create(['setup' => $setup]);
-        $this->categorySetupFactory->addAttribute(
+        $this->eavSetupFactory =$this->eavSetupFactory->create(['setup' => $setup]);
+        $this->eavSetupFactory->addAttribute(
             \Magento\Catalog\Model\Category::ENTITY,
-            'dev98_icon',
+            'thumbnail',
             [
                 'type' => 'varchar',
                 'label' => 'dev98 Icon',
